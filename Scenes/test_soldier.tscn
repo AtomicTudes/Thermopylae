@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://cil751nt87tlg"]
+
+[ext_resource type="Texture2D" uid="uid://b45tss2iwc7jc" path="res://Assets/Hoplites/Hoplite Default x64/Separated Body Parts/Hips.png" id="1_xvpwk"]
+[ext_resource type="Texture2D" uid="uid://sq2tojfxncoo" path="res://Assets/Hoplites/Hoplite Default x64/Separated Body Parts/Torso.png" id="2_57twp"]
+[ext_resource type="Texture2D" uid="uid://5ggbqlulrvn3" path="res://Assets/Hoplites/Hoplite Default x64/Separated Body Parts/Head.png" id="3_l3j5j"]
+[ext_resource type="Texture2D" uid="uid://cjj2wmp0q82lr" path="res://Assets/Hoplites/Hoplite Default x64/Separated Body Parts/Skirt.png" id="4_ukuu0"]
+
+[node name="test_soldier" type="CharacterBody2D"]
+
+[node name="Hips" type="Sprite2D" parent="."]
+texture = ExtResource("1_xvpwk")
+
+[node name="Torso" type="Sprite2D" parent="Hips"]
+z_index = -1
+position = Vector2(0, -2)
+texture = ExtResource("2_57twp")
+offset = Vector2(0, -8)
+
+[node name="Head" type="Sprite2D" parent="Hips/Torso"]
+position = Vector2(0, -18.5)
+texture = ExtResource("3_l3j5j")
+offset = Vector2(-2, -7)
+
+[node name="Skirt" type="Sprite2D" parent="Hips"]
+z_index = -1
+rotation = 0.0191331
+texture = ExtResource("4_ukuu0")
+offset = Vector2(0, 4)

@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://cdtnjp3gprdy0"]
+
+[ext_resource type="Texture2D" uid="uid://bcigc1eva0b3c" path="res://icon.svg" id="1_2irsa"]
+[ext_resource type="Script" path="res://scripts/battlefield.gd" id="1_i2dhi"]
+[ext_resource type="PackedScene" uid="uid://bnfl645fl4ngd" path="res://Scenes/spawner.tscn" id="5_wi8um"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i8fim"]
+size = Vector2(1252, 39)
+
+[node name="Battlefield" type="Node2D"]
+script = ExtResource("1_i2dhi")
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(557, 637)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_i8fim")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground"]
+modulate = Color(0.0846899, 0.0846899, 0.0846899, 1)
+scale = Vector2(9.78125, 0.3125)
+texture = ExtResource("1_2irsa")
+
+[node name="Spawner" parent="." instance=ExtResource("5_wi8um")]
+
+[node name="Allies" type="Node" parent="."]
+
+[node name="Enemies" type="Node" parent="."]
+
+[connection signal="allySpawned" from="Spawner" to="." method="_on_spawner_ally_spawned"]
+[connection signal="enemySpawned" from="Spawner" to="." method="_on_spawner_enemy_spawned"]

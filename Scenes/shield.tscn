@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://c10jwv2vm23o5"]
+
+[ext_resource type="Texture2D" uid="uid://bspxfytreda1k" path="res://Assets/Hoplites/Hoplite Default x64/Shield.png" id="1_fdy3h"]
+[ext_resource type="Script" path="res://scripts/shield.gd" id="1_klaif"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ydiw5"]
+radius = 3.38946
+height = 35.4188
+
+[node name="Shield" type="Area2D"]
+position = Vector2(-1, 2)
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_klaif")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+rotation = 1.5708
+texture = ExtResource("1_fdy3h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.343963, 0.28991)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_ydiw5")

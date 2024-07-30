@@ -1,0 +1,85 @@
+[gd_scene load_steps=9 format=3 uid="uid://d3xsep8ih5sjm"]
+
+[ext_resource type="Script" path="res://scripts/swordsman.gd" id="1_cogka"]
+[ext_resource type="Texture2D" uid="uid://bfw81mpfonrtk" path="res://Assets/Hoplites/Hoplite Marching x64.png" id="2_s6ihd"]
+[ext_resource type="Texture2D" uid="uid://d3esvs7p4yhxh" path="res://Assets/Hoplites/Hoplite Swordsman/Sword Stab Series.png" id="3_dtemr"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_67hhw"]
+radius = 6.41233
+height = 32.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dolcg"]
+radius = 4.0
+height = 22.0
+
+[sub_resource type="Animation" id="Animation_57sbj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_6qwan"]
+resource_name = "march"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kuq6l"]
+_data = {
+"RESET": SubResource("Animation_57sbj"),
+"march": SubResource("Animation_6qwan")
+}
+
+[node name="Swordsman" type="CharacterBody2D"]
+position = Vector2(109, 50)
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_cogka")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -16)
+texture = ExtResource("2_s6ihd")
+hframes = 14
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(7, -9)
+texture = ExtResource("3_dtemr")
+hframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -16)
+scale = Vector2(1.55949, 1.97853)
+shape = SubResource("CapsuleShape2D_67hhw")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(15, -23)
+shape = SubResource("CapsuleShape2D_dolcg")
+
+[node name="FoeDetector" type="RayCast2D" parent="."]
+position = Vector2(0, -16)
+target_position = Vector2(200, 0)
+collision_mask = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_kuq6l")
+}

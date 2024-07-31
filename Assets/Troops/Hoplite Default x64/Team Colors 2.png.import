@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bcjtkhdyhuap"
-path="res://.godot/imported/Team Colors 2.png-88b34f4b92700d4cac48f188d6f33437.ctex"
+path="res://.godot/imported/Team Colors 2.png-6974d5518a2e00ad715975cca9cd19ba.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Hoplites/Hoplite Default x64/Team Colors 2.png"
-dest_files=["res://.godot/imported/Team Colors 2.png-88b34f4b92700d4cac48f188d6f33437.ctex"]
+source_file="res://Assets/Troops/Hoplite Default x64/Team Colors 2.png"
+dest_files=["res://.godot/imported/Team Colors 2.png-6974d5518a2e00ad715975cca9cd19ba.ctex"]
 
 [params]
 

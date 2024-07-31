@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://chypoo62i2ei2"]
 
 [ext_resource type="Script" path="res://scripts/sword.gd" id="1_2wyi8"]
-[ext_resource type="Texture2D" uid="uid://cw8307a2skawx" path="res://Assets/Hoplites/Hoplite Default x64/R Sword.png" id="1_3j2tx"]
+[ext_resource type="Texture2D" uid="uid://ccqfsin3irnrb" path="res://Assets/Troops/Hoplite Default x64/Equipment/Sword.png" id="2_bqcx7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ckh0k"]
 size = Vector2(20, 3)
@@ -12,7 +12,7 @@ collision_mask = 5
 script = ExtResource("1_2wyi8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_3j2tx")
+texture = ExtResource("2_bqcx7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(4, -0.5)

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ccqfsin3irnrb"
-path="res://.godot/imported/Sword.png-f33b91061dbe10b2685cd2ff39b39526.ctex"
+path="res://.godot/imported/Sword.png-2b15742add2afb72b784e1496c2ca089.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Hoplites/Hoplite Default x64/Equipment/Sword.png"
-dest_files=["res://.godot/imported/Sword.png-f33b91061dbe10b2685cd2ff39b39526.ctex"]
+source_file="res://Assets/Troops/Hoplite Default x64/Equipment/Sword.png"
+dest_files=["res://.godot/imported/Sword.png-2b15742add2afb72b784e1496c2ca089.ctex"]
 
 [params]
 

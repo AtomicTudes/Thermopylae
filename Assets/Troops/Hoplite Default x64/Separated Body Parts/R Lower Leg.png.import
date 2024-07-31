@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://qijo17wm70nj"
-path="res://.godot/imported/R Lower Leg.png-d9d4a4f9d9529cb04837cd634aee8350.ctex"
+path="res://.godot/imported/R Lower Leg.png-71a468ca6023454ee4b90aa43ff72f28.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Hoplites/Hoplite Default x64/Separated Body Parts/R Lower Leg.png"
-dest_files=["res://.godot/imported/R Lower Leg.png-d9d4a4f9d9529cb04837cd634aee8350.ctex"]
+source_file="res://Assets/Troops/Hoplite Default x64/Separated Body Parts/R Lower Leg.png"
+dest_files=["res://.godot/imported/R Lower Leg.png-71a468ca6023454ee4b90aa43ff72f28.ctex"]
 
 [params]
 

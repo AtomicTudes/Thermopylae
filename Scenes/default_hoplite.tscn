@@ -1,14 +1,14 @@
 [gd_scene load_steps=17 format=3 uid="uid://dy3uxpxmgittq"]
 
-[ext_resource type="Texture2D" uid="uid://5r7n0k54ly1x" path="res://Assets/Hoplites/Hoplite Default x64/Default Animation Sheet.png" id="1_7m65a"]
-[ext_resource type="Texture2D" uid="uid://bf6jv8cy1ad8l" path="res://Assets/Hoplites/Hoplite Default x64/R Upper Arm.png" id="2_duu8h"]
-[ext_resource type="Texture2D" uid="uid://bp0okw4hx0jwp" path="res://Assets/Hoplites/Hoplite Default x64/L Upper Arm.png" id="3_21rli"]
-[ext_resource type="Texture2D" uid="uid://bj6b6fgmt1i4s" path="res://Assets/Hoplites/Hoplite Default x64/R Lower Arm.png" id="3_kkda2"]
-[ext_resource type="Texture2D" uid="uid://dp3oyde673xmj" path="res://Assets/Hoplites/Hoplite Default x64/L Lower Arm.png" id="4_2i7ph"]
-[ext_resource type="Texture2D" uid="uid://ud33yf28weel" path="res://Assets/Hoplites/Hoplite Default x64/R Hand.png" id="4_rorbt"]
-[ext_resource type="Texture2D" uid="uid://2fjsl4rhfup5" path="res://Assets/Hoplites/Hoplite Default x64/L Hand.png" id="5_dndhn"]
-[ext_resource type="Texture2D" uid="uid://fxo7dl7n0e3u" path="res://Assets/Hoplites/Hoplite Default x64/Team Colors 1.png" id="8_4pbhp"]
-[ext_resource type="Texture2D" uid="uid://bcjtkhdyhuap" path="res://Assets/Hoplites/Hoplite Default x64/Team Colors 2.png" id="9_m7lg4"]
+[ext_resource type="Texture2D" uid="uid://5r7n0k54ly1x" path="res://Assets/Troops/Hoplite Default x64/Default Animation Sheet.png" id="1_7m65a"]
+[ext_resource type="Texture2D" uid="uid://cjq1umse23hg1" path="res://Assets/Troops/Hoplite Default x64/Separated Body Parts/L Upper Arm.png" id="2_gr267"]
+[ext_resource type="Texture2D" uid="uid://cjx8atpoau137" path="res://Assets/Troops/Hoplite Default x64/Separated Body Parts/L Lower Arm.png" id="3_17q55"]
+[ext_resource type="Texture2D" uid="uid://c1wwwl45hkend" path="res://Assets/Troops/Hoplite Default x64/Separated Body Parts/L Hand.png" id="4_n0la2"]
+[ext_resource type="Texture2D" uid="uid://uoem0u0ygd0d" path="res://Assets/Troops/Hoplite Default x64/Separated Body Parts/R Upper Arm.png" id="5_ifqu7"]
+[ext_resource type="Texture2D" uid="uid://cxef85grmk3hp" path="res://Assets/Troops/Hoplite Default x64/Separated Body Parts/R Lower Arm.png" id="6_5rgki"]
+[ext_resource type="Texture2D" uid="uid://bitjuwvwhe0pf" path="res://Assets/Troops/Hoplite Default x64/Separated Body Parts/R Hand.png" id="7_cn0y1"]
+[ext_resource type="Texture2D" uid="uid://fxo7dl7n0e3u" path="res://Assets/Troops/Hoplite Default x64/Team Colors 1.png" id="8_4pbhp"]
+[ext_resource type="Texture2D" uid="uid://bcjtkhdyhuap" path="res://Assets/Troops/Hoplite Default x64/Team Colors 2.png" id="9_m7lg4"]
 
 [sub_resource type="Animation" id="Animation_fulgv"]
 length = 0.001
@@ -396,35 +396,35 @@ vframes = 3
 [node name="LUpperArm" type="Sprite2D" parent="BodySprite"]
 z_index = -1
 position = Vector2(1, -9)
-texture = ExtResource("3_21rli")
+texture = ExtResource("2_gr267")
 offset = Vector2(0, 4)
 
 [node name="LLowerArm" type="Sprite2D" parent="BodySprite/LUpperArm"]
 position = Vector2(0, 10)
-texture = ExtResource("4_2i7ph")
+texture = ExtResource("3_17q55")
 offset = Vector2(0, 4)
 
 [node name="LHand" type="Sprite2D" parent="BodySprite/LUpperArm/LLowerArm"]
 position = Vector2(0, 8)
-texture = ExtResource("5_dndhn")
+texture = ExtResource("4_n0la2")
 offset = Vector2(0, 1)
 
 [node name="RUpperArm" type="Sprite2D" parent="BodySprite"]
 z_index = 1
 position = Vector2(1, -8)
-texture = ExtResource("2_duu8h")
+texture = ExtResource("5_ifqu7")
 offset = Vector2(0, 4)
 
 [node name="RLowerArm" type="Sprite2D" parent="BodySprite/RUpperArm"]
 position = Vector2(0, 10)
 rotation = -0.174533
-texture = ExtResource("3_kkda2")
+texture = ExtResource("6_5rgki")
 offset = Vector2(0, 4)
 
 [node name="RHand" type="Sprite2D" parent="BodySprite/RUpperArm/RLowerArm"]
 position = Vector2(0, 8)
 rotation = 0.846485
-texture = ExtResource("4_rorbt")
+texture = ExtResource("7_cn0y1")
 offset = Vector2(0, 1)
 
 [node name="PrimaryColor" type="Sprite2D" parent="BodySprite"]

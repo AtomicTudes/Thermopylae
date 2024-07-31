@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://sq2tojfxncoo"
-path="res://.godot/imported/Torso.png-d6557f8b7029730a33ed3ff30cf5d902.ctex"
+path="res://.godot/imported/Torso.png-48ffda582825a79622b60edf9ea78619.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Hoplites/Hoplite Default x64/Separated Body Parts/Torso.png"
-dest_files=["res://.godot/imported/Torso.png-d6557f8b7029730a33ed3ff30cf5d902.ctex"]
+source_file="res://Assets/Troops/Hoplite Default x64/Separated Body Parts/Torso.png"
+dest_files=["res://.godot/imported/Torso.png-48ffda582825a79622b60edf9ea78619.ctex"]
 
 [params]
 

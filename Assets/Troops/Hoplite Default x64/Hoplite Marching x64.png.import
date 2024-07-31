@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c6q05ci47ejb7"
-path="res://.godot/imported/Hoplite Marching x64.png-b78aa88025fb5d73ae272fdc5c07896b.ctex"
+path="res://.godot/imported/Hoplite Marching x64.png-dff8dc6f4604b016ea97ae7d5ff22fc4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Hoplites/Hoplite Default x64/Hoplite Marching x64.png"
-dest_files=["res://.godot/imported/Hoplite Marching x64.png-b78aa88025fb5d73ae272fdc5c07896b.ctex"]
+source_file="res://Assets/Troops/Hoplite Default x64/Hoplite Marching x64.png"
+dest_files=["res://.godot/imported/Hoplite Marching x64.png-dff8dc6f4604b016ea97ae7d5ff22fc4.ctex"]
 
 [params]
 

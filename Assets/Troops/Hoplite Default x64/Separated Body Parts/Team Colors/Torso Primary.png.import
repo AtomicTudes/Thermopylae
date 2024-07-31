@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjq1umse23hg1"
-path="res://.godot/imported/L Upper Arm.png-ab07e8cb19799d0415f806b22a9b7472.ctex"
+uid="uid://dx3lv3aisiy24"
+path="res://.godot/imported/Torso Primary.png-a6280052205611b141b33479282a6adc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Troops/Hoplite Default x64/Separated Body Parts/L Upper Arm.png"
-dest_files=["res://.godot/imported/L Upper Arm.png-ab07e8cb19799d0415f806b22a9b7472.ctex"]
+source_file="res://Assets/Troops/Hoplite Default x64/Separated Body Parts/Team Colors/Torso Primary.png"
+dest_files=["res://.godot/imported/Torso Primary.png-a6280052205611b141b33479282a6adc.ctex"]
 
 [params]
 

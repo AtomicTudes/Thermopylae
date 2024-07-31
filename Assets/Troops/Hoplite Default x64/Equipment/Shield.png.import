@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bv01vni6hgxjf"
-path="res://.godot/imported/Shield.png-7bfac065165ea0395452491a6e0c0ec7.ctex"
+path="res://.godot/imported/Shield.png-31a8e0da756e1508ba1b3256dfc88809.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Hoplites/Hoplite Default x64/Equipment/Shield.png"
-dest_files=["res://.godot/imported/Shield.png-7bfac065165ea0395452491a6e0c0ec7.ctex"]
+source_file="res://Assets/Troops/Hoplite Default x64/Equipment/Shield.png"
+dest_files=["res://.godot/imported/Shield.png-31a8e0da756e1508ba1b3256dfc88809.ctex"]
 
 [params]
 

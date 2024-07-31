@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cil751nt87tlg"]
+[gd_scene load_steps=28 format=3 uid="uid://cil751nt87tlg"]
 
 [ext_resource type="Texture2D" uid="uid://b45tss2iwc7jc" path="res://Assets/Troops/Hoplite Default x64/Separated Body Parts/Hips.png" id="1_xvpwk"]
 [ext_resource type="Texture2D" uid="uid://sq2tojfxncoo" path="res://Assets/Troops/Hoplite Default x64/Separated Body Parts/Torso.png" id="2_57twp"]
@@ -26,6 +26,10 @@
 [ext_resource type="Texture2D" uid="uid://beog460ul348o" path="res://Assets/Troops/Hoplite Default x64/Separated Body Parts/R Upper Leg.png" id="24_d18ga"]
 [ext_resource type="Texture2D" uid="uid://qijo17wm70nj" path="res://Assets/Troops/Hoplite Default x64/Separated Body Parts/R Lower Leg.png" id="25_2uft1"]
 [ext_resource type="Texture2D" uid="uid://bth4vnxqnusam" path="res://Assets/Troops/Hoplite Default x64/Separated Body Parts/R Foot.png" id="26_jpqx4"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s1tpk"]
+radius = 8.0
+height = 58.0
 
 [node name="test_soldier" type="CharacterBody2D"]
 
@@ -160,3 +164,13 @@ offset = Vector2(0, 5)
 position = Vector2(0, 10)
 texture = ExtResource("26_jpqx4")
 offset = Vector2(2, 1)
+
+[node name="BodyCollision" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, -29)
+shape = SubResource("CapsuleShape2D_s1tpk")
+
+[node name="FoeDetector" type="RayCast2D" parent="."]
+position = Vector2(10, -29)
+target_position = Vector2(300, 0)
+collision_mask = 6

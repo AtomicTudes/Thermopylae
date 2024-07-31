@@ -1,28 +1,162 @@
-[gd_scene load_steps=5 format=3 uid="uid://cil751nt87tlg"]
+[gd_scene load_steps=27 format=3 uid="uid://cil751nt87tlg"]
 
-[ext_resource type="Texture2D" uid="uid://b45tss2iwc7jc" path="res://Assets/Hoplites/Hoplite Default x64/Separated Body Parts/Hips.png" id="1_xvpwk"]
-[ext_resource type="Texture2D" uid="uid://sq2tojfxncoo" path="res://Assets/Hoplites/Hoplite Default x64/Separated Body Parts/Torso.png" id="2_57twp"]
-[ext_resource type="Texture2D" uid="uid://5ggbqlulrvn3" path="res://Assets/Hoplites/Hoplite Default x64/Separated Body Parts/Head.png" id="3_l3j5j"]
-[ext_resource type="Texture2D" uid="uid://cjj2wmp0q82lr" path="res://Assets/Hoplites/Hoplite Default x64/Separated Body Parts/Skirt.png" id="4_ukuu0"]
+[ext_resource type="Texture2D" uid="uid://b45tss2iwc7jc" path="res://Assets/Troops/Hoplite Default x64/Separated Body Parts/Hips.png" id="1_xvpwk"]
+[ext_resource type="Texture2D" uid="uid://sq2tojfxncoo" path="res://Assets/Troops/Hoplite Default x64/Separated Body Parts/Torso.png" id="2_57twp"]
+[ext_resource type="Texture2D" uid="uid://bnamlxumv17d6" path="res://Assets/Troops/Hoplite Default x64/Separated Body Parts/Team Colors/Hips Primary.png" id="2_ehjq8"]
+[ext_resource type="Texture2D" uid="uid://5ggbqlulrvn3" path="res://Assets/Troops/Hoplite Default x64/Separated Body Parts/Head.png" id="3_l3j5j"]
+[ext_resource type="Texture2D" uid="uid://dn4cl61avvgid" path="res://Assets/Troops/Hoplite Default x64/Separated Body Parts/Team Colors/Hips Secondary.png" id="3_wumnd"]
+[ext_resource type="Texture2D" uid="uid://cjj2wmp0q82lr" path="res://Assets/Troops/Hoplite Default x64/Separated Body Parts/Skirt.png" id="4_ukuu0"]
+[ext_resource type="Texture2D" uid="uid://dx3lv3aisiy24" path="res://Assets/Troops/Hoplite Default x64/Separated Body Parts/Team Colors/Torso Primary.png" id="5_o0t7o"]
+[ext_resource type="Texture2D" uid="uid://c5j211wh3sbad" path="res://Assets/Troops/Hoplite Default x64/Separated Body Parts/Team Colors/Torso Secondary.png" id="6_444nj"]
+[ext_resource type="Texture2D" uid="uid://d0m1e2eh17lj5" path="res://Assets/Troops/Hoplite Default x64/Separated Body Parts/Team Colors/Head Primary.png" id="8_l3vwi"]
+[ext_resource type="Texture2D" uid="uid://bwdmhdh2xkvn3" path="res://Assets/Troops/Hoplite Default x64/Separated Body Parts/Team Colors/Head Secondary.png" id="9_ye06g"]
+[ext_resource type="Texture2D" uid="uid://uoem0u0ygd0d" path="res://Assets/Troops/Hoplite Default x64/Separated Body Parts/R Upper Arm.png" id="10_8ekc7"]
+[ext_resource type="Texture2D" uid="uid://dal3psnyc8cjo" path="res://Assets/Troops/Hoplite Default x64/Separated Body Parts/Team Colors/R Arm Primary.png" id="11_ixrly"]
+[ext_resource type="Texture2D" uid="uid://4isnnol8n17y" path="res://Assets/Troops/Hoplite Default x64/Separated Body Parts/Team Colors/R Arm Secondary.png" id="12_22xss"]
+[ext_resource type="Texture2D" uid="uid://cxef85grmk3hp" path="res://Assets/Troops/Hoplite Default x64/Separated Body Parts/R Lower Arm.png" id="13_dl30f"]
+[ext_resource type="Texture2D" uid="uid://bitjuwvwhe0pf" path="res://Assets/Troops/Hoplite Default x64/Separated Body Parts/R Hand.png" id="14_rd7kb"]
+[ext_resource type="Texture2D" uid="uid://cjq1umse23hg1" path="res://Assets/Troops/Hoplite Default x64/Separated Body Parts/L Upper Arm.png" id="15_ysjx8"]
+[ext_resource type="Texture2D" uid="uid://cjx8atpoau137" path="res://Assets/Troops/Hoplite Default x64/Separated Body Parts/L Lower Arm.png" id="16_5mn6l"]
+[ext_resource type="Texture2D" uid="uid://c1wwwl45hkend" path="res://Assets/Troops/Hoplite Default x64/Separated Body Parts/L Hand.png" id="17_i802m"]
+[ext_resource type="Texture2D" uid="uid://txxdig8gpf6i" path="res://Assets/Troops/Hoplite Default x64/Separated Body Parts/Team Colors/Skirt Primary.png" id="19_yurlx"]
+[ext_resource type="Texture2D" uid="uid://cbuqhxrlxjjpi" path="res://Assets/Troops/Hoplite Default x64/Separated Body Parts/Team Colors/Skirt Secondary.png" id="20_wv4f7"]
+[ext_resource type="Texture2D" uid="uid://b8mox1umods4d" path="res://Assets/Troops/Hoplite Default x64/Separated Body Parts/L Upper Leg.png" id="21_kvorf"]
+[ext_resource type="Texture2D" uid="uid://d0w08m4j6jdog" path="res://Assets/Troops/Hoplite Default x64/Separated Body Parts/L Lower Leg.png" id="22_m8pc6"]
+[ext_resource type="Texture2D" uid="uid://lx4b2e8j3ev8" path="res://Assets/Troops/Hoplite Default x64/Separated Body Parts/L Foot.png" id="23_bww5b"]
+[ext_resource type="Texture2D" uid="uid://beog460ul348o" path="res://Assets/Troops/Hoplite Default x64/Separated Body Parts/R Upper Leg.png" id="24_d18ga"]
+[ext_resource type="Texture2D" uid="uid://qijo17wm70nj" path="res://Assets/Troops/Hoplite Default x64/Separated Body Parts/R Lower Leg.png" id="25_2uft1"]
+[ext_resource type="Texture2D" uid="uid://bth4vnxqnusam" path="res://Assets/Troops/Hoplite Default x64/Separated Body Parts/R Foot.png" id="26_jpqx4"]
 
 [node name="test_soldier" type="CharacterBody2D"]
 
 [node name="Hips" type="Sprite2D" parent="."]
+position = Vector2(0, -27)
 texture = ExtResource("1_xvpwk")
+
+[node name="Team Colors" type="Node2D" parent="Hips"]
+
+[node name="Primary" type="Sprite2D" parent="Hips/Team Colors"]
+texture = ExtResource("2_ehjq8")
+
+[node name="Secondary" type="Sprite2D" parent="Hips/Team Colors"]
+texture = ExtResource("3_wumnd")
 
 [node name="Torso" type="Sprite2D" parent="Hips"]
 z_index = -1
-position = Vector2(0, -2)
+position = Vector2(0, -1)
 texture = ExtResource("2_57twp")
-offset = Vector2(0, -8)
+offset = Vector2(0, -10)
+
+[node name="Team Colors" type="Node2D" parent="Hips/Torso"]
+
+[node name="Primary" type="Sprite2D" parent="Hips/Torso/Team Colors"]
+position = Vector2(0, -9)
+texture = ExtResource("5_o0t7o")
+
+[node name="Secondary" type="Sprite2D" parent="Hips/Torso/Team Colors"]
+position = Vector2(0, -9)
+texture = ExtResource("6_444nj")
 
 [node name="Head" type="Sprite2D" parent="Hips/Torso"]
-position = Vector2(0, -18.5)
+position = Vector2(0, -19)
 texture = ExtResource("3_l3j5j")
 offset = Vector2(-2, -7)
 
+[node name="Team Colors" type="Node2D" parent="Hips/Torso/Head"]
+
+[node name="Primary" type="Sprite2D" parent="Hips/Torso/Head/Team Colors"]
+position = Vector2(-2, -7)
+texture = ExtResource("8_l3vwi")
+
+[node name="Secondary" type="Sprite2D" parent="Hips/Torso/Head/Team Colors"]
+position = Vector2(-2, -7)
+texture = ExtResource("9_ye06g")
+
+[node name="R Upper Arm" type="Sprite2D" parent="Hips/Torso"]
+z_index = 1
+position = Vector2(0, -13)
+texture = ExtResource("10_8ekc7")
+offset = Vector2(0, 4)
+
+[node name="Team Colors" type="Node2D" parent="Hips/Torso/R Upper Arm"]
+
+[node name="Primary" type="Sprite2D" parent="Hips/Torso/R Upper Arm/Team Colors"]
+position = Vector2(0, 4)
+texture = ExtResource("11_ixrly")
+
+[node name="Secondary" type="Sprite2D" parent="Hips/Torso/R Upper Arm/Team Colors"]
+position = Vector2(0, 4)
+texture = ExtResource("12_22xss")
+
+[node name="R Lower Arm" type="Sprite2D" parent="Hips/Torso/R Upper Arm"]
+position = Vector2(0, 10)
+texture = ExtResource("13_dl30f")
+offset = Vector2(0, 4)
+
+[node name="R Hand" type="Sprite2D" parent="Hips/Torso/R Upper Arm/R Lower Arm"]
+position = Vector2(0, 8)
+texture = ExtResource("14_rd7kb")
+offset = Vector2(0, 1)
+
+[node name="L Upper Arm" type="Sprite2D" parent="Hips/Torso"]
+z_index = -1
+position = Vector2(0, -13)
+texture = ExtResource("15_ysjx8")
+offset = Vector2(0, 4)
+
+[node name="L Lower Arm" type="Sprite2D" parent="Hips/Torso/L Upper Arm"]
+position = Vector2(0, 10)
+texture = ExtResource("16_5mn6l")
+offset = Vector2(0, 4)
+
+[node name="L Hand" type="Sprite2D" parent="Hips/Torso/L Upper Arm/L Lower Arm"]
+position = Vector2(0, 8)
+texture = ExtResource("17_i802m")
+offset = Vector2(0, 1)
+
 [node name="Skirt" type="Sprite2D" parent="Hips"]
 z_index = -1
-rotation = 0.0191331
 texture = ExtResource("4_ukuu0")
 offset = Vector2(0, 4)
+
+[node name="Team Colors" type="Node2D" parent="Hips/Skirt"]
+
+[node name="Primary" type="Sprite2D" parent="Hips/Skirt/Team Colors"]
+position = Vector2(0, 5)
+texture = ExtResource("19_yurlx")
+
+[node name="Secondary" type="Sprite2D" parent="Hips/Skirt/Team Colors"]
+position = Vector2(0, 5)
+texture = ExtResource("20_wv4f7")
+
+[node name="L Upper Leg" type="Sprite2D" parent="Hips/Skirt"]
+z_index = -2
+position = Vector2(2, 4)
+texture = ExtResource("21_kvorf")
+offset = Vector2(0, 5)
+
+[node name="L Lower Leg" type="Sprite2D" parent="Hips/Skirt/L Upper Leg"]
+position = Vector2(0, 10)
+texture = ExtResource("22_m8pc6")
+offset = Vector2(0, 5)
+
+[node name="L Foot" type="Sprite2D" parent="Hips/Skirt/L Upper Leg/L Lower Leg"]
+position = Vector2(0, 10)
+texture = ExtResource("23_bww5b")
+offset = Vector2(2, 1)
+
+[node name="R Upper Leg" type="Sprite2D" parent="Hips/Skirt"]
+z_index = -1
+position = Vector2(-2, 4)
+texture = ExtResource("24_d18ga")
+offset = Vector2(0, 5)
+
+[node name="R Lower Leg" type="Sprite2D" parent="Hips/Skirt/R Upper Leg"]
+position = Vector2(0, 10)
+texture = ExtResource("25_2uft1")
+offset = Vector2(0, 5)
+
+[node name="R Foot" type="Sprite2D" parent="Hips/Skirt/R Upper Leg/R Lower Leg"]
+position = Vector2(0, 10)
+texture = ExtResource("26_jpqx4")
+offset = Vector2(2, 1)

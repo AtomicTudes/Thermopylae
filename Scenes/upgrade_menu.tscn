@@ -1,0 +1,62 @@
+[gd_scene load_steps=3 format=3 uid="uid://dw175mxo5ssvq"]
+
+[ext_resource type="Texture2D" uid="uid://5ggbqlulrvn3" path="res://Assets/Troops/Hoplite Default x64/Separated Body Parts/Head.png" id="1_yhxv6"]
+[ext_resource type="Script" path="res://Scenes/SoldierButton.gd" id="2_rfc74"]
+
+[node name="UpgradeMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SoldierButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+icon = ExtResource("1_yhxv6")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("2_rfc74")
+
+[node name="EditButton" type="Button" parent="SoldierButton"]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 8.0
+offset_top = 10.0
+offset_right = 176.0
+offset_bottom = 46.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 20
+disabled = true
+text = "Edit"
+
+[node name="TreeButton" type="Button" parent="SoldierButton"]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 8.0
+offset_top = 55.0
+offset_right = 176.0
+offset_bottom = 91.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 20
+disabled = true
+text = "View Tree"
+
+[connection signal="pressed" from="SoldierButton" to="SoldierButton" method="_on_pressed"]

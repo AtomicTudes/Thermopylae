@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dy3uxpxmgittq"]
+[gd_scene load_steps=18 format=3 uid="uid://dy3uxpxmgittq"]
 
 [ext_resource type="Texture2D" uid="uid://5r7n0k54ly1x" path="res://Assets/Troops/Hoplite Default x64/Default Animation Sheet.png" id="1_7m65a"]
 [ext_resource type="Texture2D" uid="uid://cjq1umse23hg1" path="res://Assets/Troops/Hoplite Default x64/Separated Body Parts/L Upper Arm.png" id="2_gr267"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cxef85grmk3hp" path="res://Assets/Troops/Hoplite Default x64/Separated Body Parts/R Lower Arm.png" id="6_5rgki"]
 [ext_resource type="Texture2D" uid="uid://bitjuwvwhe0pf" path="res://Assets/Troops/Hoplite Default x64/Separated Body Parts/R Hand.png" id="7_cn0y1"]
 [ext_resource type="Texture2D" uid="uid://fxo7dl7n0e3u" path="res://Assets/Troops/Hoplite Default x64/Team Colors 1.png" id="8_4pbhp"]
+[ext_resource type="PackedScene" uid="uid://chypoo62i2ei2" path="res://Scenes/sword.tscn" id="8_tssgj"]
 [ext_resource type="Texture2D" uid="uid://bcjtkhdyhuap" path="res://Assets/Troops/Hoplite Default x64/Team Colors 2.png" id="9_m7lg4"]
 
 [sub_resource type="Animation" id="Animation_fulgv"]
@@ -21,7 +22,7 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
+"update": 0,
 "values": [Vector2i(0, 0)]
 }
 tracks/1/type = "value"
@@ -426,6 +427,9 @@ position = Vector2(0, 8)
 rotation = 0.846485
 texture = ExtResource("7_cn0y1")
 offset = Vector2(0, 1)
+
+[node name="Sword" parent="BodySprite/RUpperArm/RLowerArm/RHand" instance=ExtResource("8_tssgj")]
+position = Vector2(7, 2)
 
 [node name="PrimaryColor" type="Sprite2D" parent="BodySprite"]
 texture = ExtResource("8_4pbhp")

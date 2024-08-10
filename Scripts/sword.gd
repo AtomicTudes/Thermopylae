@@ -1,16 +1,12 @@
-extends Area2D
-
-var cleave = 2
-var dmgMin = 1
-var dmgMax = 3
-
-var attackTypes = ["chop", "stab"]
-
+extends "res://Scripts/weapon.gd"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	cleave = 2
+	dmgMin = 0
+	dmgMax = 0
+	attackTypes = ["chop", "stab"]
+	spawnPos = Vector2(8, 2)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

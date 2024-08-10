@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dy3uxpxmgittq"]
+[gd_scene load_steps=17 format=3 uid="uid://dy3uxpxmgittq"]
 
 [ext_resource type="Texture2D" uid="uid://5r7n0k54ly1x" path="res://Assets/Troops/Hoplite Default x64/Default Animation Sheet.png" id="1_7m65a"]
 [ext_resource type="Texture2D" uid="uid://cjq1umse23hg1" path="res://Assets/Troops/Hoplite Default x64/Separated Body Parts/L Upper Arm.png" id="2_gr267"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://cxef85grmk3hp" path="res://Assets/Troops/Hoplite Default x64/Separated Body Parts/R Lower Arm.png" id="6_5rgki"]
 [ext_resource type="Texture2D" uid="uid://bitjuwvwhe0pf" path="res://Assets/Troops/Hoplite Default x64/Separated Body Parts/R Hand.png" id="7_cn0y1"]
 [ext_resource type="Texture2D" uid="uid://fxo7dl7n0e3u" path="res://Assets/Troops/Hoplite Default x64/Team Colors 1.png" id="8_4pbhp"]
-[ext_resource type="PackedScene" uid="uid://chypoo62i2ei2" path="res://Scenes/sword.tscn" id="8_tssgj"]
 [ext_resource type="Texture2D" uid="uid://bcjtkhdyhuap" path="res://Assets/Troops/Hoplite Default x64/Team Colors 2.png" id="9_m7lg4"]
 
 [sub_resource type="Animation" id="Animation_fulgv"]
@@ -389,7 +388,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="BodySprite" type="Sprite2D" parent="."]
-position = Vector2(0, -32)
+position = Vector2(0, -31)
 texture = ExtResource("1_7m65a")
 hframes = 14
 vframes = 3
@@ -428,13 +427,10 @@ rotation = 0.846485
 texture = ExtResource("7_cn0y1")
 offset = Vector2(0, 1)
 
-[node name="Sword" parent="BodySprite/RUpperArm/RLowerArm/RHand" instance=ExtResource("8_tssgj")]
-position = Vector2(7, 2)
-
-[node name="PrimaryColor" type="Sprite2D" parent="BodySprite"]
+[node name="PrimaryColor" type="Sprite2D" parent="BodySprite" groups=["primary_color_nodes"]]
 texture = ExtResource("8_4pbhp")
 
-[node name="SecondaryColor" type="Sprite2D" parent="BodySprite/PrimaryColor"]
+[node name="SecondaryColor" type="Sprite2D" parent="BodySprite" groups=["secondary_color_nodes"]]
 texture = ExtResource("9_m7lg4")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -443,12 +439,11 @@ libraries = {
 }
 
 [node name="BodyCollision" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(1, -29)
 shape = SubResource("CapsuleShape2D_hr815")
 
 [node name="FoeDetector" type="RayCast2D" parent="."]
 position = Vector2(10, -32)
-target_position = Vector2(500, 0)
+target_position = Vector2(200, 0)
 collision_mask = 6
 hit_from_inside = true

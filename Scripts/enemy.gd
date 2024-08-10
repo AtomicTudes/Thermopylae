@@ -18,13 +18,13 @@ func _physics_process(delta):
 				if !animation_player.is_playing():
 					attack() #Attack if nothing else is happening
 			else: #If we see an enemy but we aren't in melee range, charge to the enemy
-				velocity.x  = direction * SPEED * 2.0 #Increase movement speed
-				animation_player.set_speed_scale(2.0) #Increase marching speed to match
+				velocity.x  = direction * moveSpeed * 1.5 #Increase movement speed
+				animation_player.set_speed_scale(1.5) #Increase marching speed to match
 				animation_player.queue("marching")
 		else: #Stuff to do if the troop doesn't see an enemy
 			if !animation_player.is_playing(): #Just march forward until we do.
 				animation_player.play("marching")
-				velocity.x = direction * SPEED
+				velocity.x = direction * moveSpeed
 	elif not is_on_floor(): #If not on the floor, apply gravity to reach the floor.
 		velocity.y += gravity * delta
 		

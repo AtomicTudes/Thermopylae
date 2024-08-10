@@ -14,7 +14,7 @@ func _physics_process(delta):
 			if animation_player.current_animation != "brace" && body_frame.frame != 33:
 				#Troop braces if it isn't already braced
 				animation_player.play("brace")
-			if !animation_player.is_playing() && weapon.has_overlapping_bodies():
+			if !animation_player.is_playing():
 				attack()
 		else: #Stuff to do if the troop doesn't see an enemy
 			if animation_player.current_animation != "brace" && body_frame.frame == 33:
@@ -23,7 +23,7 @@ func _physics_process(delta):
 				animation_player.queue("RESET")
 			if !animation_player.is_playing():
 				animation_player.play("marching")
-				velocity.x = direction * SPEED
+				velocity.x = direction * moveSpeed
 	elif not is_on_floor(): #If not on the floor, apply gravity to reach the floor.
 		velocity.y += gravity * delta
 		

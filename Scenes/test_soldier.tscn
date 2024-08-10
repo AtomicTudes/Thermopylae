@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://cil751nt87tlg"]
+[gd_scene load_steps=31 format=3 uid="uid://cil751nt87tlg"]
 
 [ext_resource type="Texture2D" uid="uid://b45tss2iwc7jc" path="res://Assets/Troops/Hoplite Default x64/Separated Body Parts/Hips.png" id="1_xvpwk"]
 [ext_resource type="Texture2D" uid="uid://sq2tojfxncoo" path="res://Assets/Troops/Hoplite Default x64/Separated Body Parts/Torso.png" id="2_57twp"]
@@ -15,7 +15,6 @@
 [ext_resource type="Texture2D" uid="uid://4isnnol8n17y" path="res://Assets/Troops/Hoplite Default x64/Separated Body Parts/Team Colors/R Arm Secondary.png" id="12_22xss"]
 [ext_resource type="Texture2D" uid="uid://cxef85grmk3hp" path="res://Assets/Troops/Hoplite Default x64/Separated Body Parts/R Lower Arm.png" id="13_dl30f"]
 [ext_resource type="Texture2D" uid="uid://bitjuwvwhe0pf" path="res://Assets/Troops/Hoplite Default x64/Separated Body Parts/R Hand.png" id="14_rd7kb"]
-[ext_resource type="PackedScene" uid="uid://chypoo62i2ei2" path="res://Scenes/sword.tscn" id="15_j1pen"]
 [ext_resource type="Texture2D" uid="uid://cjq1umse23hg1" path="res://Assets/Troops/Hoplite Default x64/Separated Body Parts/L Upper Arm.png" id="15_ysjx8"]
 [ext_resource type="Texture2D" uid="uid://cjx8atpoau137" path="res://Assets/Troops/Hoplite Default x64/Separated Body Parts/L Lower Arm.png" id="16_5mn6l"]
 [ext_resource type="Texture2D" uid="uid://c1wwwl45hkend" path="res://Assets/Troops/Hoplite Default x64/Separated Body Parts/L Hand.png" id="17_i802m"]
@@ -31,6 +30,45 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s1tpk"]
 radius = 8.0
 height = 58.0
+
+[sub_resource type="Animation" id="Animation_3o12p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hips/Torso/R Upper Arm:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hips/Torso/R Upper Arm/R Lower Arm:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.174533]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hips/Torso/R Upper Arm/R Lower Arm/R Hand:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.846485]
+}
 
 [sub_resource type="Animation" id="Animation_3il4l"]
 resource_name = "chop"
@@ -59,33 +97,6 @@ tracks/1/keys = {
 "values": [-1.22173]
 }
 
-[sub_resource type="Animation" id="Animation_3o12p"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Hips/Torso/R Upper Arm:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Hips/Torso/R Upper Arm/R Lower Arm:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_iwvxs"]
 _data = {
 "RESET": SubResource("Animation_3o12p"),
@@ -100,10 +111,10 @@ texture = ExtResource("1_xvpwk")
 
 [node name="Team Colors" type="Node2D" parent="Hips"]
 
-[node name="Primary" type="Sprite2D" parent="Hips/Team Colors"]
+[node name="Primary" type="Sprite2D" parent="Hips/Team Colors" groups=["primary_color_nodes"]]
 texture = ExtResource("2_ehjq8")
 
-[node name="Secondary" type="Sprite2D" parent="Hips/Team Colors"]
+[node name="Secondary" type="Sprite2D" parent="Hips/Team Colors" groups=["secondary_color_nodes"]]
 texture = ExtResource("3_wumnd")
 
 [node name="Torso" type="Sprite2D" parent="Hips"]
@@ -114,11 +125,11 @@ offset = Vector2(0, -10)
 
 [node name="Team Colors" type="Node2D" parent="Hips/Torso"]
 
-[node name="Primary" type="Sprite2D" parent="Hips/Torso/Team Colors"]
+[node name="Primary" type="Sprite2D" parent="Hips/Torso/Team Colors" groups=["primary_color_nodes"]]
 position = Vector2(0, -9)
 texture = ExtResource("5_o0t7o")
 
-[node name="Secondary" type="Sprite2D" parent="Hips/Torso/Team Colors"]
+[node name="Secondary" type="Sprite2D" parent="Hips/Torso/Team Colors" groups=["secondary_color_nodes"]]
 position = Vector2(0, -9)
 texture = ExtResource("6_444nj")
 
@@ -129,11 +140,11 @@ offset = Vector2(-2, -7)
 
 [node name="Team Colors" type="Node2D" parent="Hips/Torso/Head"]
 
-[node name="Primary" type="Sprite2D" parent="Hips/Torso/Head/Team Colors"]
+[node name="Primary" type="Sprite2D" parent="Hips/Torso/Head/Team Colors" groups=["primary_color_nodes"]]
 position = Vector2(-2, -7)
 texture = ExtResource("8_l3vwi")
 
-[node name="Secondary" type="Sprite2D" parent="Hips/Torso/Head/Team Colors"]
+[node name="Secondary" type="Sprite2D" parent="Hips/Torso/Head/Team Colors" groups=["secondary_color_nodes"]]
 position = Vector2(-2, -7)
 texture = ExtResource("9_ye06g")
 
@@ -145,27 +156,25 @@ offset = Vector2(0, 4)
 
 [node name="Team Colors" type="Node2D" parent="Hips/Torso/R Upper Arm"]
 
-[node name="Primary" type="Sprite2D" parent="Hips/Torso/R Upper Arm/Team Colors"]
+[node name="Primary" type="Sprite2D" parent="Hips/Torso/R Upper Arm/Team Colors" groups=["primary_color_nodes"]]
 position = Vector2(0, 4)
 texture = ExtResource("11_ixrly")
 
-[node name="Secondary" type="Sprite2D" parent="Hips/Torso/R Upper Arm/Team Colors"]
+[node name="Secondary" type="Sprite2D" parent="Hips/Torso/R Upper Arm/Team Colors" groups=["secondary_color_nodes"]]
 position = Vector2(0, 4)
 texture = ExtResource("12_22xss")
 
 [node name="R Lower Arm" type="Sprite2D" parent="Hips/Torso/R Upper Arm"]
 position = Vector2(0, 10)
+rotation = -0.174533
 texture = ExtResource("13_dl30f")
 offset = Vector2(0, 4)
 
 [node name="R Hand" type="Sprite2D" parent="Hips/Torso/R Upper Arm/R Lower Arm"]
 position = Vector2(0, 8)
-rotation = 1.08104
+rotation = 0.846485
 texture = ExtResource("14_rd7kb")
 offset = Vector2(0, 1)
-
-[node name="Sword" parent="Hips/Torso/R Upper Arm/R Lower Arm/R Hand" instance=ExtResource("15_j1pen")]
-position = Vector2(7, 2)
 
 [node name="L Upper Arm" type="Sprite2D" parent="Hips/Torso"]
 z_index = -1
@@ -190,11 +199,11 @@ offset = Vector2(0, 4)
 
 [node name="Team Colors" type="Node2D" parent="Hips/Skirt"]
 
-[node name="Primary" type="Sprite2D" parent="Hips/Skirt/Team Colors"]
+[node name="Primary" type="Sprite2D" parent="Hips/Skirt/Team Colors" groups=["primary_color_nodes"]]
 position = Vector2(0, 5)
 texture = ExtResource("19_yurlx")
 
-[node name="Secondary" type="Sprite2D" parent="Hips/Skirt/Team Colors"]
+[node name="Secondary" type="Sprite2D" parent="Hips/Skirt/Team Colors" groups=["secondary_color_nodes"]]
 position = Vector2(0, 5)
 texture = ExtResource("20_wv4f7")
 
@@ -236,6 +245,7 @@ position = Vector2(0, -29)
 shape = SubResource("CapsuleShape2D_s1tpk")
 
 [node name="FoeDetector" type="RayCast2D" parent="."]
+visible = false
 position = Vector2(10, -29)
 target_position = Vector2(300, 0)
 collision_mask = 6

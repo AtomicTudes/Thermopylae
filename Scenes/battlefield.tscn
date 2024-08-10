@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cdtnjp3gprdy0"]
+[gd_scene load_steps=7 format=3 uid="uid://cdtnjp3gprdy0"]
 
 [ext_resource type="Texture2D" uid="uid://bcigc1eva0b3c" path="res://icon.svg" id="1_2irsa"]
 [ext_resource type="Script" path="res://scripts/battlefield.gd" id="1_i2dhi"]
 [ext_resource type="PackedScene" uid="uid://dt7yrl2gpuigb" path="res://Scenes/background.tscn" id="2_eblbs"]
+[ext_resource type="PackedScene" uid="uid://u3md3l0mdcts" path="res://Scenes/interface.tscn" id="5_bwexu"]
 [ext_resource type="PackedScene" uid="uid://bnfl645fl4ngd" path="res://Scenes/spawner.tscn" id="5_wi8um"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i8fim"]
@@ -30,6 +31,8 @@ texture = ExtResource("1_2irsa")
 [node name="Allies" type="Node" parent="."]
 
 [node name="Enemies" type="Node" parent="."]
+
+[node name="interface" parent="." instance=ExtResource("5_bwexu")]
 
 [connection signal="allySpawned" from="Spawner" to="." method="_on_spawner_ally_spawned"]
 [connection signal="enemySpawned" from="Spawner" to="." method="_on_spawner_enemy_spawned"]

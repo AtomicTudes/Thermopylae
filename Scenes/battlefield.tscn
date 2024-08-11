@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bcigc1eva0b3c" path="res://icon.svg" id="1_2irsa"]
 [ext_resource type="Script" path="res://scripts/battlefield.gd" id="1_i2dhi"]
 [ext_resource type="PackedScene" uid="uid://dt7yrl2gpuigb" path="res://Scenes/background.tscn" id="2_eblbs"]
-[ext_resource type="PackedScene" uid="uid://u3md3l0mdcts" path="res://Scenes/interface.tscn" id="5_bwexu"]
+[ext_resource type="PackedScene" uid="uid://u3md3l0mdcts" path="res://Scenes/army_manager_interface.tscn" id="5_bwexu"]
 [ext_resource type="PackedScene" uid="uid://bnfl645fl4ngd" path="res://Scenes/spawner.tscn" id="5_wi8um"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i8fim"]

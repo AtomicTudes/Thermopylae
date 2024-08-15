@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bq0x6yw3dtswt"]
+
+[sub_resource type="GDScript" id="GDScript_cw8rb"]
+script/source = "class_name DefaultTroop extends Resource
+
+var id
+var "
+
+[resource]
+resource_name = "troop_info"
+script = SubResource("GDScript_cw8rb")

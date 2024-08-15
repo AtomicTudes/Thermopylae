@@ -1,0 +1,69 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2jj3g50byhy0"]
+
+[ext_resource type="Texture2D" uid="uid://dypyrsmgoxwf1" path="res://Assets/Free Samples/coin.png" id="2_ylkf1"]
+
+[node name="background" type="PanelContainer"]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="control_ribbon" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="troop_portrait" type="TextureRect" parent="control_ribbon"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_ylkf1")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="PanelContainer" type="PanelContainer" parent="control_ribbon"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="GridContainer" type="GridContainer" parent="control_ribbon/PanelContainer"]
+layout_mode = 2
+columns = 3
+
+[node name="edit_button" type="Button" parent="control_ribbon/PanelContainer/GridContainer"]
+layout_mode = 2
+text = "Edit"
+
+[node name="Button2" type="Button" parent="control_ribbon/PanelContainer/GridContainer"]
+layout_mode = 2
+text = "Button"
+
+[node name="Button3" type="Button" parent="control_ribbon/PanelContainer/GridContainer"]
+layout_mode = 2
+text = "Button"
+
+[node name="Button4" type="Button" parent="control_ribbon/PanelContainer/GridContainer"]
+layout_mode = 2
+text = "Button"
+
+[node name="Button5" type="Button" parent="control_ribbon/PanelContainer/GridContainer"]
+layout_mode = 2
+text = "Button"
+
+[node name="Button6" type="Button" parent="control_ribbon/PanelContainer/GridContainer"]
+layout_mode = 2
+text = "Button"
+
+[node name="Button7" type="Button" parent="control_ribbon/PanelContainer/GridContainer"]
+layout_mode = 2
+text = "Button"
+
+[node name="Button8" type="Button" parent="control_ribbon/PanelContainer/GridContainer"]
+layout_mode = 2
+text = "Button"
+
+[node name="Button9" type="Button" parent="control_ribbon/PanelContainer/GridContainer"]
+layout_mode = 2
+text = "Button"
+
+[node name="TextureRect2" type="TextureRect" parent="control_ribbon"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_ylkf1")
+expand_mode = 2
+stretch_mode = 5

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cujng55ss4aq5"]
+
+[ext_resource type="PackedScene" uid="uid://cil751nt87tlg" path="res://Scenes/test_soldier.tscn" id="1_eg4au"]
+[ext_resource type="PackedScene" uid="uid://u3md3l0mdcts" path="res://Scenes/army_manager_interface.tscn" id="2_3xl08"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="test_soldier" parent="." instance=ExtResource("1_eg4au")]
+scale = Vector2(6, 6)
+
+[node name="ui" parent="." instance=ExtResource("2_3xl08")]

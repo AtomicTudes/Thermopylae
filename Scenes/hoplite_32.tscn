@@ -1,0 +1,256 @@
+[gd_scene load_steps=22 format=3 uid="uid://cqf8crjkl2bf7"]
+
+[ext_resource type="Texture2D" uid="uid://n6uygavbt2wu" path="res://Assets/Troops/Hoplite Default x32/Separated Body Parts/Torso.png" id="1_1c6ig"]
+[ext_resource type="Script" path="res://scripts/hoplite_32.gd" id="1_6bgo0"]
+[ext_resource type="Texture2D" uid="uid://3ol22dwum57j" path="res://Assets/Troops/Hoplite Default x32/Team Colors/Torso Primary.png" id="2_pbiyg"]
+[ext_resource type="Texture2D" uid="uid://xmlmgud73x8q" path="res://Assets/Troops/Hoplite Default x32/Team Colors/Torso Secondary.png" id="3_8gpj3"]
+[ext_resource type="Texture2D" uid="uid://bw0t1fyads66w" path="res://Assets/Troops/Hoplite Default x32/Separated Body Parts/Head.png" id="4_5msk7"]
+[ext_resource type="Texture2D" uid="uid://b4xwx2nk2o26l" path="res://Assets/Troops/Hoplite Default x32/Team Colors/Head Primary.png" id="5_444cp"]
+[ext_resource type="Texture2D" uid="uid://34nslb8kka1g" path="res://Assets/Troops/Hoplite Default x32/Team Colors/Head Secondary.png" id="6_v4ks8"]
+[ext_resource type="Texture2D" uid="uid://n1ublkshx1h2" path="res://Assets/Troops/Hoplite Default x32/Separated Body Parts/R Upper Arm.png" id="7_knp5g"]
+[ext_resource type="Texture2D" uid="uid://c35wte25hweuf" path="res://Assets/Troops/Hoplite Default x32/Separated Body Parts/L Upper Arm.png" id="7_slctb"]
+[ext_resource type="Texture2D" uid="uid://c0nwxkuxohpjs" path="res://Assets/Troops/Hoplite Default x32/Team Colors/Arm Primary.png" id="8_2dido"]
+[ext_resource type="Texture2D" uid="uid://pojvsxjkrgce" path="res://Assets/Troops/Hoplite Default x32/Team Colors/Arm Secondary.png" id="9_5se4b"]
+[ext_resource type="Texture2D" uid="uid://cx4kpmh0srmjf" path="res://Assets/Troops/Hoplite Default x32/Separated Body Parts/R Lower Arm.png" id="10_fy1nl"]
+[ext_resource type="Texture2D" uid="uid://b6yhkdaxixtrx" path="res://Assets/Troops/Hoplite Default x32/Separated Body Parts/L Lower Arm.png" id="10_nbcq8"]
+[ext_resource type="Texture2D" uid="uid://db6c0t5ix625w" path="res://Assets/Troops/Hoplite Default x32/Separated Body Parts/L Hand.png" id="11_8o6dj"]
+[ext_resource type="Texture2D" uid="uid://ceco8uti0m2ll" path="res://Assets/Troops/Hoplite Default x32/Separated Body Parts/R Hand.png" id="11_pjw08"]
+[ext_resource type="PackedScene" uid="uid://c10jwv2vm23o5" path="res://Scenes/shield.tscn" id="12_ck0ku"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xhvcj"]
+radius = 9.0
+height = 66.0
+
+[sub_resource type="Animation" id="Animation_83uxc"]
+resource_name = "chop"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Torso/R Upper Arm:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5, 0.7, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.261799, -1.8326, -0.523599, 0.0, 0.261799]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Torso/R Upper Arm/R Lower Arm:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5, 0.7, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [-0.872665, -1.309, -0.314159, -0.523599, -0.872665]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Torso/R Upper Arm/R Lower Arm/R Hand:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5, 0.7, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.349066, 0.523599, 0.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_1gsk8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Torso/R Upper Arm:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Torso/R Upper Arm/R Lower Arm:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.349066]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Torso/R Upper Arm/R Lower Arm/R Hand:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_cqa6e"]
+resource_name = "stab"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Torso/R Upper Arm:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.261799, 1.22173, -1.36136, 0.261799]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Torso/R Upper Arm/R Lower Arm:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [-0.872665, -2.21657, -0.20944, -0.872665]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Torso/R Upper Arm/R Lower Arm/R Hand:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.872665, 1.36136, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8mnnh"]
+_data = {
+"RESET": SubResource("Animation_1gsk8"),
+"chop": SubResource("Animation_83uxc"),
+"stab": SubResource("Animation_cqa6e")
+}
+
+[node name="hoplite32" type="CharacterBody2D"]
+script = ExtResource("1_6bgo0")
+
+[node name="Torso" type="Sprite2D" parent="."]
+position = Vector2(0, -4)
+texture = ExtResource("1_1c6ig")
+offset = Vector2(0, -20)
+
+[node name="Team Colors" type="Node2D" parent="Torso"]
+
+[node name="Primary" type="Sprite2D" parent="Torso/Team Colors" groups=["primary_color_nodes"]]
+position = Vector2(0, -20)
+texture = ExtResource("2_pbiyg")
+
+[node name="Secondary" type="Sprite2D" parent="Torso/Team Colors" groups=["secondary_color_nodes"]]
+position = Vector2(0, -20)
+texture = ExtResource("3_8gpj3")
+
+[node name="Head" type="Sprite2D" parent="Torso"]
+position = Vector2(1, -42)
+texture = ExtResource("4_5msk7")
+offset = Vector2(-2, -11)
+
+[node name="Team Colors" type="Node2D" parent="Torso/Head"]
+
+[node name="Primary" type="Sprite2D" parent="Torso/Head/Team Colors" groups=["primary_color_nodes"]]
+position = Vector2(-2, -11)
+texture = ExtResource("5_444cp")
+
+[node name="Secondary" type="Sprite2D" parent="Torso/Head/Team Colors" groups=["secondary_color_nodes"]]
+position = Vector2(-2, -11)
+texture = ExtResource("6_v4ks8")
+
+[node name="L Upper Arm" type="Sprite2D" parent="Torso"]
+z_index = -1
+position = Vector2(0, -37)
+texture = ExtResource("7_slctb")
+offset = Vector2(0, 7)
+
+[node name="Team Colors" type="Node2D" parent="Torso/L Upper Arm"]
+
+[node name="Primary" type="Sprite2D" parent="Torso/L Upper Arm/Team Colors" groups=["primary_color_nodes"]]
+position = Vector2(0, 7)
+texture = ExtResource("8_2dido")
+
+[node name="Secondary" type="Sprite2D" parent="Torso/L Upper Arm/Team Colors" groups=["secondary_color_nodes"]]
+position = Vector2(0, 7)
+texture = ExtResource("9_5se4b")
+
+[node name="L Lower Arm" type="Sprite2D" parent="Torso/L Upper Arm"]
+position = Vector2(1, 13)
+rotation = -1.5708
+texture = ExtResource("10_nbcq8")
+offset = Vector2(-1, 6)
+
+[node name="L Hand" type="Sprite2D" parent="Torso/L Upper Arm/L Lower Arm"]
+position = Vector2(-1, 13)
+texture = ExtResource("11_8o6dj")
+offset = Vector2(0, 2)
+
+[node name="shield" parent="Torso/L Upper Arm/L Lower Arm/L Hand" instance=ExtResource("12_ck0ku")]
+position = Vector2(-5.96046e-08, 4)
+
+[node name="R Upper Arm" type="Sprite2D" parent="Torso"]
+position = Vector2(0, -37)
+texture = ExtResource("7_knp5g")
+offset = Vector2(0, 7)
+
+[node name="Team Colors" type="Node2D" parent="Torso/R Upper Arm"]
+
+[node name="Primary" type="Sprite2D" parent="Torso/R Upper Arm/Team Colors"]
+position = Vector2(0, 7)
+texture = ExtResource("8_2dido")
+
+[node name="Secondary" type="Sprite2D" parent="Torso/R Upper Arm/Team Colors"]
+position = Vector2(0, 7)
+texture = ExtResource("9_5se4b")
+
+[node name="R Lower Arm" type="Sprite2D" parent="Torso/R Upper Arm"]
+position = Vector2(1, 13)
+rotation = -0.349066
+texture = ExtResource("10_fy1nl")
+offset = Vector2(-1, 6)
+
+[node name="R Hand" type="Sprite2D" parent="Torso/R Upper Arm/R Lower Arm"]
+position = Vector2(-1, 13)
+texture = ExtResource("11_pjw08")
+offset = Vector2(0, 2)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Torso"]
+position = Vector2(0, -28)
+remote_path = NodePath("../../BodyCollision")
+
+[node name="BodyCollision" type="CollisionShape2D" parent="."]
+position = Vector2(0, -32)
+shape = SubResource("CapsuleShape2D_xhvcj")
+
+[node name="FoeDetector" type="RayCast2D" parent="."]
+visible = false
+position = Vector2(10, -29)
+target_position = Vector2(300, 0)
+collision_mask = 6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_8mnnh")
+}

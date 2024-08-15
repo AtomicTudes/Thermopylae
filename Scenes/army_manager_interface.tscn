@@ -8,15 +8,15 @@ script = ExtResource("2_xj8p1")
 
 [node name="upper_ribbon" type="PanelContainer" parent="."]
 custom_minimum_size = Vector2(0, 30)
-offset_left = -576.0
-offset_top = -324.0
-offset_right = 576.0
-offset_bottom = -292.0
+offset_left = -480.0
+offset_top = -270.0
+offset_right = 480.0
+offset_bottom = -238.0
 size_flags_vertical = 3
 
 [node name="FightButton" type="Button" parent="."]
-offset_left = 426.0
-offset_top = 174.0
-offset_right = 576.0
-offset_bottom = 324.0
+offset_left = 330.0
+offset_top = 120.0
+offset_right = 480.0
+offset_bottom = 270.0
 text = "FIGHT!"

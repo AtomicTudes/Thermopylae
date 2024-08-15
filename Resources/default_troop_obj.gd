@@ -7,6 +7,7 @@ var weapon: String = "sword"
 var primary_color: String = Color.CRIMSON.to_html()
 var secondary_color: String = Color.DIM_GRAY.to_html()
 var icon
+var default_behavior: String = "attack"
 
 func _init(data: Dictionary = {}):
 	for each in data.keys():

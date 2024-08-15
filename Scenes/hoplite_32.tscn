@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cqf8crjkl2bf7"]
+[gd_scene load_steps=21 format=3 uid="uid://cqf8crjkl2bf7"]
 
 [ext_resource type="Texture2D" uid="uid://n6uygavbt2wu" path="res://Assets/Troops/Hoplite Default x32/Separated Body Parts/Torso.png" id="1_1c6ig"]
 [ext_resource type="Script" path="res://scripts/hoplite_32.gd" id="1_6bgo0"]
@@ -15,7 +15,6 @@
 [ext_resource type="Texture2D" uid="uid://b6yhkdaxixtrx" path="res://Assets/Troops/Hoplite Default x32/Separated Body Parts/L Lower Arm.png" id="10_nbcq8"]
 [ext_resource type="Texture2D" uid="uid://db6c0t5ix625w" path="res://Assets/Troops/Hoplite Default x32/Separated Body Parts/L Hand.png" id="11_8o6dj"]
 [ext_resource type="Texture2D" uid="uid://ceco8uti0m2ll" path="res://Assets/Troops/Hoplite Default x32/Separated Body Parts/R Hand.png" id="11_pjw08"]
-[ext_resource type="PackedScene" uid="uid://c10jwv2vm23o5" path="res://Scenes/shield.tscn" id="12_ck0ku"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xhvcj"]
 radius = 9.0
@@ -148,6 +147,8 @@ _data = {
 }
 
 [node name="hoplite32" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 5
 script = ExtResource("1_6bgo0")
 
 [node name="Torso" type="Sprite2D" parent="."]
@@ -207,9 +208,6 @@ position = Vector2(-1, 13)
 texture = ExtResource("11_8o6dj")
 offset = Vector2(0, 2)
 
-[node name="shield" parent="Torso/L Upper Arm/L Lower Arm/L Hand" instance=ExtResource("12_ck0ku")]
-position = Vector2(-5.96046e-08, 4)
-
 [node name="R Upper Arm" type="Sprite2D" parent="Torso"]
 position = Vector2(0, -37)
 texture = ExtResource("7_knp5g")
@@ -217,11 +215,11 @@ offset = Vector2(0, 7)
 
 [node name="Team Colors" type="Node2D" parent="Torso/R Upper Arm"]
 
-[node name="Primary" type="Sprite2D" parent="Torso/R Upper Arm/Team Colors"]
+[node name="Primary" type="Sprite2D" parent="Torso/R Upper Arm/Team Colors" groups=["primary_color_nodes"]]
 position = Vector2(0, 7)
 texture = ExtResource("8_2dido")
 
-[node name="Secondary" type="Sprite2D" parent="Torso/R Upper Arm/Team Colors"]
+[node name="Secondary" type="Sprite2D" parent="Torso/R Upper Arm/Team Colors" groups=["secondary_color_nodes"]]
 position = Vector2(0, 7)
 texture = ExtResource("9_5se4b")
 

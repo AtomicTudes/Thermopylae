@@ -8,10 +8,8 @@ extends Node2D
 @onready var enemyTimer = $Spawner/EnemyTimer
 @onready var data_manager = get_node("/root/data_manager")
 
-var enemy_script = preload("res://Scripts/enemy.gd")
-var ally_script = preload("res://Scripts/ally.gd")
-var ally_troop_scene = preload("res://Scenes/default_ally.tscn")
-var enemy_troop_scene = preload("res://Scenes/default_enemy.tscn")
+var ally_troop_scene = preload("res://Scenes/hoplite_32.tscn")
+var enemy_troop_scene = preload("res://Scenes/hoplite_32.tscn")
 var allyIndex = 0
 
 # Called when the node enters the scene tree for the first time.

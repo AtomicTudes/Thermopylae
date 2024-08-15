@@ -1,14 +1,18 @@
 extends CharacterBody2D
 
 @onready var foe_detector = $FoeDetector
-@onready var body_frame = $Torso
+@onready var torso = $Torso
+@onready var head = $Torso/Head
 @onready var animation_player = $AnimationPlayer
+
+var troop_settings
+var default_behavior
 
 var direction = 1
 var isEnemy = false
 var collisionObjs = [] #A list of objects that will need their collision layer/mask changed depending on their team.
 
-var moveSpeed = 100
+var moveSpeed = 150
 var combatSpeed = 1.0
 
 var sword_scene = preload("res://Scenes/sword.tscn")
@@ -24,23 +28,69 @@ var rng = RandomNumberGenerator.new()
 
 func _ready():
 	rng.randomize()
+	collisionObjs.append(self)
+	equip(troop_settings)
+
+func _process(delta):
+	pass
+
+func _physics_process(delta):
+	if is_on_floor():
+			#Sets the initial velocity for the troop based on its behavior.
+			move_behavior()
+			if lhequip.has_overlapping_areas():
+				attack()
+	elif not is_on_floor():
+		velocity.y += gravity * delta
+	move_and_slide()
+
+#Determines the troop's behavior based on its settings. Basically, determines how it moves.
+func move_behavior():
+	if lhequip.has_overlapping_bodies():
+		velocity.x = 0
+		if torso.rotation != 0:
+			#BUG: The troop 'snaps' into upright orientation as soon as contact is made, and that shouldn't really happen
+			torso.rotation = 0
+			head.rotation = -torso.rotation
+	
+	if default_behavior == "attack": #Basically just charges at the enemy
+		if velocity.x == 0:
+			velocity.x = direction * 5
+		velocity.x += direction * absf(velocity.x) * 0.06 #This is acceleration, up to the troop's max move speed.
+		velocity.x = clampf(velocity.x, -moveSpeed, moveSpeed)
+		torso.rotation = 0.35 * direction * (velocity.x / moveSpeed) #The torso leans into the direction of the movement
+		head.rotation = -torso.rotation #The head counters the torso's rotation to continue looking ahead.
+	elif default_behavior == "defend": #Moves more slowly toward the enemy
+		if velocity.x == 0:
+			velocity.x = direction * 5
+		velocity.x += direction * absf(velocity.x) * 0.06 #This is acceleration, up to the troop's max move speed.
+		velocity.x = clampf(velocity.x, -moveSpeed / 2, moveSpeed / 2)
+		torso.rotation = 0.35 * direction * (velocity.x / moveSpeed / 2) #The torso leans into the direction of the movement
+		head.rotation = -torso.rotation #The head counters the torso's rotation to continue looking ahead.
+	elif default_behavior == "support": #Tries to stand behind another troop
+		pass
+	elif default_behavior == "archer": #Stops and attempts to attack with a ranged weapon as soon as possible (work in progress)
+		pass
 
 #Equips each troop with specific stuff according to saved data.
 func equip(troop_settings: DefaultTroop = DefaultTroop.new()):
+	#Get the default behavior for the troop. Basically determines how it moves.
+	default_behavior = troop_settings.default_behavior
+	
 	#equip on Right Hand.
 	match troop_settings.weapon:
 		"sword": rhequip = sword_scene.instantiate()
 		"handaxe": rhequip = handaxe_scene.instantiate()
-	get_node("BodySprite/RUpperArm/RLowerArm/RHand").add_child(rhequip)
+	get_node("Torso/R Upper Arm/R Lower Arm/R Hand").add_child(rhequip)
 	rhequip.set_position(rhequip.spawnPos)
 	collisionObjs.append(rhequip)
 	
 	#equip on Left Hand. Currently only equipping a shield
-	get_node("BodySprite/LUpperArm").set_rotation_degrees(10)
-	get_node("BodySprite/LUpperArm/LLowerArm").set_rotation_degrees(-100)
+	get_node("Torso/L Upper Arm").set_rotation_degrees(10)
+	get_node("Torso/L Upper Arm/L Lower Arm").set_rotation_degrees(-100)
 	lhequip = shield_scene.instantiate()
-	get_node("BodySprite/LUpperArm/LLowerArm/LHand").add_child(lhequip)
-	lhequip.set_position(Vector2(-1,2))
+	get_node("Torso/L Upper Arm/L Lower Arm/L Hand").add_child(lhequip)
+	lhequip.set_position(Vector2(0, 4))
 	collisionObjs.append(lhequip)
 	
 	#Change Sprite colors to match the saved data
@@ -53,6 +103,7 @@ func equip(troop_settings: DefaultTroop = DefaultTroop.new()):
 	
 	#scale *= 3 #ALERT Increase the scale for now, because I'm tired of squinting
 
+#Inverts the team selection. Troops are spawned as allies by default.
 func changeTeams():
 	isEnemy = !isEnemy
 	direction *= -1 #Flips the troop's movement/facing direction
@@ -68,8 +119,9 @@ func changeTeams():
 	
 	#TODO: Invert or otherwise change the color scheme
 
-func attack(): #Starts the attack animation. Called during the physics process
-	if rhequip.has_overlapping_bodies():
+#Starts the attack animation. Called by the physics process after checking the sprite's position.
+func attack(): 
+	if not animation_player.is_playing():
 		animation_player.play(rhequip.attackTypes[rng.randi_range(0, rhequip.attackTypes.size() - 1)]) #Uses a random attack animation based on an array in the weapon's script
 
 #Delivers damage according to weapon stats. Called during the animation player to make the damage happen with realistic timing.

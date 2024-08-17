@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkhaktobu76mx"]
+
+[ext_resource type="PackedScene" uid="uid://dfjfdbpsy1xx1" path="res://scenes/army_management.tscn" id="1_tg85l"]
+[ext_resource type="PackedScene" uid="uid://u3md3l0mdcts" path="res://scenes/army_manager_interface.tscn" id="2_7t71d"]
+
+[node name="main_node" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="army_management" parent="." instance=ExtResource("1_tg85l")]
+
+[node name="interface" parent="." instance=ExtResource("2_7t71d")]
+layout_mode = 1

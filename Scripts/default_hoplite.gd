@@ -32,15 +32,17 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 # Create a Random Number Generator for damage
 var rng = RandomNumberGenerator.new()
 
+var troop_settings
+
 func _ready():
 	collisionObjs.append(self)
 	rng.randomize()
-	#equip()
+	equip(troop_settings)
 
 #Equips each troop with specific stuff according to saved data.
-func equip(troop_settings):
+func equip(troop_settings: DefaultTroop = DefaultTroop.new()):
 	#equip on Right Hand.
-	match troop_settings["weapon"]:
+	match troop_settings.weapon:
 		"sword": weapon = sword_scene.instantiate()
 		"handaxe": weapon = handaxe_scene.instantiate()
 	get_node("BodySprite/RUpperArm/RLowerArm/RHand").add_child(weapon)
@@ -57,11 +59,13 @@ func equip(troop_settings):
 	
 	#Change Sprite colors to match the saved data
 	for each in get_tree().get_nodes_in_group("primary_color_nodes"):
-		each.set_self_modulate(troop_settings["primary_color"])
+		if self.is_ancestor_of(each):
+			each.set_self_modulate(troop_settings["primary_color"])
 	for each in get_tree().get_nodes_in_group("secondary_color_nodes"):
-		each.set_self_modulate(troop_settings["secondary_color"])
+		if self.is_ancestor_of(each):
+			each.set_self_modulate(troop_settings["secondary_color"])
 	
-	scale *= 3 #Increase the scale for now, because I'm tired of squinting
+	#scale *= 3 #ALERT Increase the scale for now, because I'm tired of squinting
 
 #Flips the team setting for a troop. Mostly used when spawning
 func changeTeams():

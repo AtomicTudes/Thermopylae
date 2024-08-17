@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfjfdbpsy1xx1"]
+
+[ext_resource type="Script" path="res://scripts/army_management.gd" id="1_w3hhd"]
+[ext_resource type="PackedScene" uid="uid://u3md3l0mdcts" path="res://scenes/army_manager_interface.tscn" id="4_qx2b3"]
+[ext_resource type="PackedScene" uid="uid://cj4c2mev77wkb" path="res://scenes/wing_menus.tscn" id="4_ttog5"]
+
+[node name="army_management" type="Node2D"]
+script = ExtResource("1_w3hhd")
+
+[node name="screen_margin" type="MarginContainer" parent="."]
+offset_right = 1152.0
+offset_bottom = 518.0
+
+[node name="ui" parent="." instance=ExtResource("4_qx2b3")]
+z_index = 10
+position = Vector2(576, 324)
+
+[node name="wing_menus" parent="." instance=ExtResource("4_ttog5")]
+
+[editable path="ui"]

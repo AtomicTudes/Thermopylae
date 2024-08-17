@@ -1,0 +1,125 @@
+[gd_scene load_steps=4 format=3 uid="uid://r5nwbf1sjbes"]
+
+[ext_resource type="Script" path="res://scripts/upgrade_screen.gd" id="1_3ghjd"]
+[ext_resource type="Texture2D" uid="uid://bcigc1eva0b3c" path="res://icon.svg" id="1_l4il5"]
+[ext_resource type="PackedScene" uid="uid://cil751nt87tlg" path="res://scenes/test_soldier.tscn" id="3_2tl5c"]
+
+[node name="upgrade_screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3ghjd")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("1_l4il5")
+
+[node name="Middle Panel" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="HBoxContainer/Middle Panel"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "troop upgrades"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="PreviewArea" type="Control" parent="HBoxContainer/Middle Panel"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="test_soldier" parent="HBoxContainer/Middle Panel/PreviewArea" instance=ExtResource("3_2tl5c")]
+position = Vector2(266, 398)
+scale = Vector2(6, 6)
+
+[node name="Right Panel" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="TopEdge" type="Control" parent="HBoxContainer/Right Panel"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label3" type="Label" parent="HBoxContainer/Right Panel"]
+layout_mode = 2
+text = "Choose Weapon"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/Right Panel"]
+layout_mode = 2
+
+[node name="WeaponPrev" type="Button" parent="HBoxContainer/Right Panel/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "<"
+
+[node name="WeaponDisplay" type="TextureRect" parent="HBoxContainer/Right Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("1_l4il5")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="WeaponNext" type="Button" parent="HBoxContainer/Right Panel/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = ">"
+
+[node name="HSeparator" type="HSeparator" parent="HBoxContainer/Right Panel"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/Right Panel"]
+layout_mode = 2
+text = "Primary Troop Color"
+
+[node name="PrimaryColorPicker" type="ColorPickerButton" parent="HBoxContainer/Right Panel"]
+layout_mode = 2
+text = "Primary Troop Color"
+color = Color(0.643137, 0, 0, 1)
+edit_alpha = false
+
+[node name="Label2" type="Label" parent="HBoxContainer/Right Panel"]
+layout_mode = 2
+text = "Secondary Troop Color"
+
+[node name="SecondaryColorPicker" type="ColorPickerButton" parent="HBoxContainer/Right Panel"]
+layout_mode = 2
+text = "Secondary Troop Color"
+color = Color(0.154876, 0.154876, 0.154876, 1)
+edit_alpha = false
+
+[node name="HSeparator2" type="HSeparator" parent="HBoxContainer/Right Panel"]
+layout_mode = 2
+
+[node name="SaveButton" type="Button" parent="HBoxContainer/Right Panel"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "SAVE"
+
+[node name="NextButton" type="Button" parent="HBoxContainer/Right Panel"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "ARMY"
+
+[node name="BottomEdge" type="Control" parent="HBoxContainer/Right Panel"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[connection signal="pressed" from="HBoxContainer/Right Panel/HBoxContainer/WeaponPrev" to="." method="_on_weapon_prev_pressed"]
+[connection signal="pressed" from="HBoxContainer/Right Panel/HBoxContainer/WeaponNext" to="." method="_on_weapon_next_pressed"]
+[connection signal="color_changed" from="HBoxContainer/Right Panel/PrimaryColorPicker" to="." method="_on_primary_color_picker_color_changed"]
+[connection signal="color_changed" from="HBoxContainer/Right Panel/SecondaryColorPicker" to="." method="_on_secondary_color_picker_color_changed"]
+[connection signal="pressed" from="HBoxContainer/Right Panel/SaveButton" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/Right Panel/NextButton" to="." method="_on_next_button_pressed"]

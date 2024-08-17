@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://clm63cqpdnnwb"]
+
+[ext_resource type="Texture2D" uid="uid://dypyrsmgoxwf1" path="res://Assets/Free Samples/coin.png" id="1_npyl0"]
+[ext_resource type="Script" path="res://scripts/troop_selector.gd" id="3_hff2x"]
+
+[node name="troop_selector" type="Button" groups=["troop_menus"]]
+custom_minimum_size = Vector2(120, 120)
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -150.0
+offset_right = 150.0
+grow_vertical = 0
+size_flags_horizontal = 6
+size_flags_vertical = 4
+toggle_mode = true
+icon = ExtResource("1_npyl0")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("3_hff2x")
+
+[connection signal="toggled" from="." to="." method="_on_toggled"]

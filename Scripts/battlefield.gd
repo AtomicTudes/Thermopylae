@@ -2,47 +2,62 @@ extends Node2D
 
 @onready var ally_group = $Allies
 @onready var enemy_group = $Enemies
+@onready var allySpawn = $Spawner/AllySpawnPos
+@onready var enemySpawn = $Spawner/EnemySpawnPos
+@onready var allyTimer = $Spawner/AllyTimer
+@onready var enemyTimer = $Spawner/EnemyTimer
+@onready var data_manager = get_node("/root/data_manager")
 
-var enemy_script = preload("res://Scripts/enemy.gd")
-var ally_script = preload("res://Scripts/ally.gd")
+@onready var ui = $ui
+@onready var gold_counter = $ui/upper_ribbon/gold_icon/gold_text
 
-var troop_settings
-
-func _init():
-	load_game()
+var ally_troop_scene = preload("res://scenes/hoplite_32.tscn")
+var enemy_troop_scene = preload("res://scenes/hoplite_32.tscn")
+var allyIndex = 0
+var enemy_spawn_min: int = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	allyTimer.timeout.connect(on_ally_spawned)
+	enemyTimer.timeout.connect(on_enemy_spawned)
+	gold_counter.text = String.num(data_manager.player_info.gold)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
-
-func _on_spawner_enemy_spawned(troop):
-	troop.set_script(enemy_script)
-	enemy_group.add_child(troop) #Each troop's _ready function is called when they're added to the scene
-	troop.equip(troop_settings)
-	troop.changeTeams()
-
-func _on_spawner_ally_spawned(troop):
-	troop.set_script(ally_script)
-	ally_group.add_child(troop)
-	troop.equip(troop_settings)
-
-func load_game():
-	if not FileAccess.file_exists("user://savegame.save"):
-		print("No save file found.")
-		return
-	
-	var save_file = FileAccess.open("user://savegame.save", FileAccess.READ)
-	while save_file.get_position() < save_file.get_length():
-		var json_string = save_file.get_line()
-		var json = JSON.new()
+	if allyTimer.is_stopped() and ally_group.get_child_count() == 0:
+		data_manager.save_game()
+		await get_tree().create_timer(1.5).timeout
+		ui.get_node("game_over").visible = true
 		
-		var parse_result = json.parse(json_string)
-		if not parse_result == OK:
-			print("JSON Parse Error: ", json.get_error_message(), " in ", json_string, " at line ", json.get_error_line())
-			continue
-		
-		troop_settings = json.get_data()
+
+func on_ally_spawned():
+	var troopObj = data_manager.troop_dict[data_manager.deploy_order[allyIndex]]
+	var new_troop = ally_troop_scene.instantiate()
+	new_troop.troop_settings = troopObj
+	ally_group.add_child(new_troop)
+	new_troop.global_position = allySpawn.global_position
+	allyIndex += 1
+	if allyIndex >= data_manager.deploy_order.size():
+		allyTimer.stop()
+
+func on_enemy_spawned():
+	var ally_num = ally_group.get_child_count()
+	if ally_num > 1 and ally_num > enemy_group.get_child_count():
+		enemy_spawn_min = int(ally_num * 1.5)
+	for x in enemy_spawn_min:
+		var new_troop = enemy_troop_scene.instantiate()
+		new_troop.troop_settings = DefaultTroop.new()
+		enemy_group.add_child(new_troop)
+		new_troop.global_position = enemySpawn.global_position
+		new_troop.changeTeams()
+		new_troop.enemy_died.connect(on_enemy_died)
+		await get_tree().create_timer(0.2).timeout
+
+func on_enemy_died(troop):
+	data_manager.player_info.kills += 1
+	data_manager.player_info.gold += 1
+	gold_counter.text = String.num(data_manager.player_info.gold)
+
+
+func _on_enemy_despawn_body_entered(body):
+	body.queue_free() # Replace with function body.

@@ -1,0 +1,65 @@
+[gd_scene load_steps=4 format=3 uid="uid://cnwvosqiydb7f"]
+
+[ext_resource type="PackedScene" uid="uid://cil751nt87tlg" path="res://scenes/test_soldier.tscn" id="1_2w8sk"]
+[ext_resource type="Script" path="res://scripts/customize_troop.gd" id="1_tu7or"]
+[ext_resource type="Texture2D" uid="uid://bcigc1eva0b3c" path="res://icon.svg" id="2_vpudy"]
+
+[node name="CustomizeTroop" type="Node2D"]
+script = ExtResource("1_tu7or")
+
+[node name="test_soldier" parent="." instance=ExtResource("1_2w8sk")]
+position = Vector2(556, 515)
+scale = Vector2(6, 6)
+
+[node name="WeaponEquip" type="Node2D" parent="test_soldier/Hips/Torso/R Upper Arm/R Lower Arm/R Hand" index="0"]
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 100.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayButton" type="Button" parent="UI"]
+layout_mode = 1
+offset_left = 779.0
+offset_top = 423.0
+offset_right = 915.0
+offset_bottom = 559.0
+icon = ExtResource("2_vpudy")
+
+[node name="RightButton" type="Button" parent="UI/PlayButton"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 8.0
+offset_top = -42.0
+offset_right = 76.0
+offset_bottom = 42.0
+grow_horizontal = 0
+grow_vertical = 2
+text = ">"
+
+[node name="LeftButton" type="Button" parent="UI/PlayButton"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -78.0
+offset_top = -42.0
+offset_right = -10.0
+offset_bottom = 42.0
+grow_vertical = 2
+text = "<"
+
+[connection signal="pressed" from="UI/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="UI/PlayButton/RightButton" to="." method="_on_right_button_pressed"]
+[connection signal="pressed" from="UI/PlayButton/LeftButton" to="." method="_on_left_button_pressed"]
+
+[editable path="test_soldier"]

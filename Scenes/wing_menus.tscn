@@ -1,0 +1,48 @@
+[gd_scene load_steps=2 format=3 uid="uid://cj4c2mev77wkb"]
+
+[ext_resource type="Script" path="res://scripts/wing_menus.gd" id="1_71ckq"]
+
+[node name="wing_menus" type="Control"]
+layout_direction = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_71ckq")
+
+[node name="LeftGrid" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 1.0
+offset_left = -130.0
+offset_top = -40.0
+offset_right = -5.0
+offset_bottom = 40.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="LeftGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "BUTTON"
+
+[node name="RightGrid" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = -40.0
+offset_right = 130.0
+offset_bottom = 40.0
+grow_vertical = 2
+
+[node name="EditButton" type="Button" parent="RightGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "EDIT"

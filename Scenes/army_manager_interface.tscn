@@ -5,13 +5,14 @@
 
 [node name="ui" type="Camera2D"]
 z_index = 25
+zoom = Vector2(0.5, 0.5)
 script = ExtResource("2_xj8p1")
 
 [node name="upper_ribbon" parent="." instance=ExtResource("2_02p1b")]
 
 [node name="FightButton" type="Button" parent="."]
-offset_left = 330.0
-offset_top = 120.0
+offset_left = 382.0
+offset_top = 172.0
 offset_right = 480.0
 offset_bottom = 270.0
 text = "FIGHT!"

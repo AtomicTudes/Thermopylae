@@ -1,4 +1,4 @@
-extends "res://Scripts/default_hoplite.gd"
+extends "res://scripts/default_hoplite.gd"
 
 class_name Enemy
 

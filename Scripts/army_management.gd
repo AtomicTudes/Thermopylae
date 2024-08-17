@@ -16,8 +16,9 @@ var current_button
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	setup_wing_menus()
-	setup_ui()
 	draw_pyramid()
+	setup_ui()
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -168,6 +169,11 @@ func setup_wing_menus():
 func setup_ui():
 	get_node("ui/FightButton").pressed.connect(on_fight_pressed)
 	gold_counter.text = String.num(data_manager.player_info.gold)
+	
+	var right_bound = pyramid.get_child(0).get_child(0).global_position.x
+	var left_bound = pyramid.get_child(0).get_child(-1).global_position.x
+	ui.global_position.x = right_bound + (left_bound - right_bound) * 0.5 + 75
+	ui.global_position.y = 100
 	
 #When a new troop menu is toggled open, reposition the wing menus and target the new troop ID for operations
 func on_troop_selected(new_button):

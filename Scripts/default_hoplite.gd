@@ -7,9 +7,9 @@ extends CharacterBody2D
 @onready var body_frame = $BodySprite
 @onready var animation_player = $AnimationPlayer
 
-var sword_scene = preload("res://Scenes/sword.tscn")
-var handaxe_scene = preload("res://Scenes/handaxe.tscn")
-var shield_scene = preload("res://Scenes/shield.tscn")
+var sword_scene = preload("res://scenes/sword.tscn")
+var handaxe_scene = preload("res://scenes/handaxe.tscn")
+var shield_scene = preload("res://scenes/shield.tscn")
 var isEnemy = false
 var collisionObjs = [] #A list of objects that will need their collision layer/mask changed depending on their team.
 
@@ -77,7 +77,7 @@ func changeTeams():
 	for each in collisionObjs:
 		each.set_collision_mask_value(2, !each.get_collision_mask_value(2))
 		each.set_collision_mask_value(3, !each.get_collision_mask_value(3))
-		if not each is Weapon: #Weapons don't exist on a layer. Inverts all other nodes' layering. Excludes RayCast2D, and any others that don't have layers
+		if not each is Melee_Weapon: #Weapons don't exist on a layer. Inverts all other nodes' layering. Excludes RayCast2D, and any others that don't have layers
 			each.set_collision_layer_value(2, !each.get_collision_layer_value(2))
 			each.set_collision_layer_value(3, !each.get_collision_layer_value(3))
 	

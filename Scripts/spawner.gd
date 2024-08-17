@@ -3,7 +3,7 @@ extends Node2D
 signal enemySpawned(troop)
 signal allySpawned(troop)
 
-var troop_scene = preload("res://Scenes/default_hoplite.tscn")
+var troop_scene = preload("res://scenes/default_hoplite.tscn")
 
 @onready var ally_spawn = $AllySpawnPos
 @onready var enemy_spawn = $EnemySpawnPos

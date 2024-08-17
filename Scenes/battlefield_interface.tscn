@@ -1,0 +1,66 @@
+[gd_scene load_steps=4 format=3 uid="uid://c76ninmlqnraq"]
+
+[ext_resource type="Script" path="res://scripts/camera_controller.gd" id="1_rc55l"]
+[ext_resource type="PackedScene" uid="uid://m68pb6gum7wv" path="res://scenes/upper_ribbon.tscn" id="2_5xdcy"]
+[ext_resource type="PackedScene" uid="uid://b2jj3g50byhy0" path="res://scenes/control_ribbon.tscn" id="2_mjg55"]
+
+[node name="ui" type="Camera2D"]
+position = Vector2(575, 410)
+script = ExtResource("1_rc55l")
+
+[node name="upper_ribbon" parent="." instance=ExtResource("2_5xdcy")]
+
+[node name="lower_ribbon" parent="." instance=ExtResource("2_mjg55")]
+offset_left = -480.0
+offset_top = 169.0
+offset_right = 480.0
+offset_bottom = 270.0
+
+[node name="game_over" type="Panel" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -170.0
+offset_top = -95.5
+offset_right = 170.0
+offset_bottom = 95.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="game_over"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -97.5
+offset_top = -55.0
+offset_right = 97.5
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 34
+text = "GAME OVER"
+
+[node name="Button" type="Button" parent="game_over"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.5
+offset_top = 9.5
+offset_right = 45.5
+offset_bottom = 40.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "CONTINUE"
+
+[connection signal="pressed" from="game_over/Button" to="." method="_on_button_pressed"]

@@ -6,9 +6,11 @@ var primary_color: String = Color.CRIMSON.to_html()
 var secondary_color: String = Color.DIM_GRAY.to_html()
 var icon
 var default_behavior: String = "attack"
+var name: String = "Firstname Lastname"
 
 #Variables for record-keeping and statistics. May have an indirect effect on how the troop interacts with the world.
 var kills: int = 0
+var level: int = 1
 var id
 var row: int
 var col: int

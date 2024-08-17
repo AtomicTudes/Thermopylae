@@ -31,4 +31,4 @@ func _input(event):
 
 
 func _on_button_pressed():
-	get_tree().change_scene_to_file("res://Scenes/army_management.tscn")
+	get_tree().change_scene_to_file("res://scenes/army_management.tscn")

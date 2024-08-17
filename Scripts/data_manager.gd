@@ -85,23 +85,3 @@ func get_troop(troopId):
 		return troop_dict[troopId]
 	else:
 		return DefaultTroop.new()
-
-##Uses a troop's color information to create an icon
-#func create_icon(troopObj):
-	#var helm = load("res://Assets/Troops/Hoplite Default x64/Separated Body Parts/Head.png").get_image()
-	#var pcImg = load("res://Assets/Troops/Hoplite Default x64/Separated Body Parts/Team Colors/Head Primary.png").get_image()
-	#var scImg = load("res://Assets/Troops/Hoplite Default x64/Separated Body Parts/Team Colors/Head Secondary.png").get_image()
-	##Recolors each pixel in the Primary Color/Secondary Color images to match the selected value. Feels horrendously clumsy
-	#for i in pcImg.get_width():
-		#for j in pcImg.get_height():
-			#if pcImg.get_pixel(i, j) == Color.WHITE:
-				#pcImg.set_pixel(i, j, troopObj.primary_color)
-	#for i in scImg.get_width():
-		#for j in scImg.get_height():
-			#if scImg.get_pixel(i, j) == Color.WHITE:
-				#scImg.set_pixel(i, j, troopObj.secondary_color)
-	##Creates one image from three (base head, primary color, secondary color)
-	#helm.blend_rect(pcImg, Rect2i(0,0,16,20), Vector2i(0,0))
-	#helm.blend_rect(scImg, Rect2i(0,0,16,20), Vector2i(0,0))
-	#troopObj.icon = helm.get_data().hex_encode() #Sends the string representing this icon to the troop dict
-	#return ImageTexture.create_from_image(helm) #Returns the image as a usable texture

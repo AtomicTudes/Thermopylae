@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dkhaktobu76mx"]
 
-[ext_resource type="PackedScene" uid="uid://dfjfdbpsy1xx1" path="res://Scenes/army_management.tscn" id="1_tg85l"]
-[ext_resource type="PackedScene" uid="uid://u3md3l0mdcts" path="res://Scenes/army_manager_interface.tscn" id="2_7t71d"]
+[ext_resource type="PackedScene" uid="uid://dfjfdbpsy1xx1" path="res://scenes/army_management.tscn" id="1_tg85l"]
+[ext_resource type="PackedScene" uid="uid://u3md3l0mdcts" path="res://scenes/army_manager_interface.tscn" id="2_7t71d"]
 
 [node name="main_node" type="Control"]
 layout_mode = 3

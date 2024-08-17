@@ -5,6 +5,8 @@ extends CharacterBody2D
 @onready var head = $Torso/Head
 @onready var animation_player = $AnimationPlayer
 
+signal enemy_died(troop)
+
 var troop_settings
 var default_behavior
 
@@ -14,10 +16,11 @@ var collisionObjs = [] #A list of objects that will need their collision layer/m
 
 var moveSpeed = 150
 var combatSpeed = 1.0
+var health = 20
 
-var sword_scene = preload("res://Scenes/sword.tscn")
-var handaxe_scene = preload("res://Scenes/handaxe.tscn")
-var shield_scene = preload("res://Scenes/shield.tscn")
+var sword_scene = preload("res://scenes/sword.tscn")
+var handaxe_scene = preload("res://scenes/handaxe.tscn")
+var shield_scene = preload("res://scenes/shield.tscn")
 var rhequip
 var lhequip
 
@@ -32,7 +35,8 @@ func _ready():
 	equip(troop_settings)
 
 func _process(delta):
-	pass
+	if health < 1:
+		die()
 
 func _physics_process(delta):
 	if is_on_floor():
@@ -55,14 +59,14 @@ func move_behavior():
 	
 	if default_behavior == "attack": #Basically just charges at the enemy
 		if velocity.x == 0:
-			velocity.x = direction * 5
+			velocity.x = direction * 20
 		velocity.x += direction * absf(velocity.x) * 0.06 #This is acceleration, up to the troop's max move speed.
 		velocity.x = clampf(velocity.x, -moveSpeed, moveSpeed)
 		torso.rotation = 0.35 * direction * (velocity.x / moveSpeed) #The torso leans into the direction of the movement
 		head.rotation = -torso.rotation #The head counters the torso's rotation to continue looking ahead.
 	elif default_behavior == "defend": #Moves more slowly toward the enemy
 		if velocity.x == 0:
-			velocity.x = direction * 5
+			velocity.x = direction * 20
 		velocity.x += direction * absf(velocity.x) * 0.06 #This is acceleration, up to the troop's max move speed.
 		velocity.x = clampf(velocity.x, -moveSpeed / 2, moveSpeed / 2)
 		torso.rotation = 0.35 * direction * (velocity.x / moveSpeed / 2) #The torso leans into the direction of the movement
@@ -73,12 +77,12 @@ func move_behavior():
 		pass
 
 #Equips each troop with specific stuff according to saved data.
-func equip(troop_settings: DefaultTroop = DefaultTroop.new()):
+func equip(troop_info: DefaultTroop = DefaultTroop.new()):
 	#Get the default behavior for the troop. Basically determines how it moves.
-	default_behavior = troop_settings.default_behavior
+	default_behavior = troop_info.default_behavior
 	
 	#equip on Right Hand.
-	match troop_settings.weapon:
+	match troop_info.weapon:
 		"sword": rhequip = sword_scene.instantiate()
 		"handaxe": rhequip = handaxe_scene.instantiate()
 	get_node("Torso/R Upper Arm/R Lower Arm/R Hand").add_child(rhequip)
@@ -96,10 +100,10 @@ func equip(troop_settings: DefaultTroop = DefaultTroop.new()):
 	#Change Sprite colors to match the saved data
 	for each in get_tree().get_nodes_in_group("primary_color_nodes"):
 		if self.is_ancestor_of(each):
-			each.set_self_modulate(troop_settings["primary_color"])
+			each.set_self_modulate(troop_info["primary_color"])
 	for each in get_tree().get_nodes_in_group("secondary_color_nodes"):
 		if self.is_ancestor_of(each):
-			each.set_self_modulate(troop_settings["secondary_color"])
+			each.set_self_modulate(troop_info["secondary_color"])
 	
 	#scale *= 3 #ALERT Increase the scale for now, because I'm tired of squinting
 
@@ -113,7 +117,7 @@ func changeTeams():
 	for each in collisionObjs:
 		each.set_collision_mask_value(2, !each.get_collision_mask_value(2))
 		each.set_collision_mask_value(3, !each.get_collision_mask_value(3))
-		if not each is Weapon: #Weapons don't exist on a layer. Inverts all other nodes' layering. Excludes RayCast2D, and any others that don't have layers
+		if not each is Melee_Weapon: #Weapons don't exist on a layer. Inverts all other nodes' layering. Excludes RayCast2D, and any others that don't have layers
 			each.set_collision_layer_value(2, !each.get_collision_layer_value(2))
 			each.set_collision_layer_value(3, !each.get_collision_layer_value(3))
 	
@@ -137,3 +141,10 @@ func fight():
 	
 	for i in attacks:
 		enemies[i].health -= rng.randi_range(rhequip.dmgMin, rhequip.dmgMax)
+		if enemies[i].health < 1:
+			troop_settings.kills += 1
+
+func die():
+	if isEnemy:
+		enemy_died.emit(self)
+	queue_free()

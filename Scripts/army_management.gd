@@ -3,9 +3,10 @@ extends Node2D
 @onready var data_manager = get_node("/root/data_manager")
 @onready var army = data_manager.troop_dict
 
-@onready var troop_selector = preload("res://Scenes/troop_selector.tscn")
+@onready var troop_selector = preload("res://scenes/troop_selector.tscn")
 @onready var wing_menus = $wing_menus
 @onready var ui = $ui
+@onready var gold_counter = $ui/upper_ribbon/gold_icon/gold_text
 
 @onready var pyramid
 @export var margin = 300
@@ -166,6 +167,7 @@ func setup_wing_menus():
 
 func setup_ui():
 	get_node("ui/FightButton").pressed.connect(on_fight_pressed)
+	gold_counter.text = String.num(data_manager.player_info.gold)
 	
 #When a new troop menu is toggled open, reposition the wing menus and target the new troop ID for operations
 func on_troop_selected(new_button):
@@ -181,12 +183,15 @@ func on_troop_selected(new_button):
 
 func on_edit_pressed():
 	if current_button.troopId == null: #If the current button doesn't have an ID, it means no troop exists for it. We need to create one.
-		recruit_troop(current_button)
+		if data_manager.player_info.gold >= 10:
+			recruit_troop(current_button)
+			data_manager.player_info.gold -= 10
+			gold_counter.text = String.num(data_manager.player_info.gold)
 	else:
 		data_manager.current_troop = army[current_button.troopId]
-		get_tree().change_scene_to_file("res://Scenes/upgrade_screen.tscn")
+		get_tree().change_scene_to_file("res://scenes/upgrade_screen.tscn")
 
 func on_fight_pressed():
 	data_manager.save_game()
 	data_manager.deploy_order = create_deployment_order()
-	get_tree().change_scene_to_file("res://Scenes/battlefield.tscn")
+	get_tree().change_scene_to_file("res://scenes/battlefield.tscn")

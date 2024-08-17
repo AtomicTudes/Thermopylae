@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/upgrade_screen.gd" id="1_3ghjd"]
 [ext_resource type="Texture2D" uid="uid://bcigc1eva0b3c" path="res://icon.svg" id="1_l4il5"]
-[ext_resource type="PackedScene" uid="uid://cil751nt87tlg" path="res://Scenes/test_soldier.tscn" id="3_2tl5c"]
+[ext_resource type="PackedScene" uid="uid://cil751nt87tlg" path="res://scenes/test_soldier.tscn" id="3_2tl5c"]
 
 [node name="upgrade_screen" type="Control"]
 layout_mode = 3
@@ -43,7 +43,7 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="test_soldier" parent="HBoxContainer/Middle Panel/PreviewArea" instance=ExtResource("3_2tl5c")]
-position = Vector2(322.4, 441.6)
+position = Vector2(266, 398)
 scale = Vector2(6, 6)
 
 [node name="Right Panel" type="VBoxContainer" parent="HBoxContainer"]
@@ -123,5 +123,3 @@ size_flags_vertical = 3
 [connection signal="color_changed" from="HBoxContainer/Right Panel/SecondaryColorPicker" to="." method="_on_secondary_color_picker_color_changed"]
 [connection signal="pressed" from="HBoxContainer/Right Panel/SaveButton" to="." method="_on_save_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/Right Panel/NextButton" to="." method="_on_next_button_pressed"]
-
-[editable path="HBoxContainer/Middle Panel/PreviewArea/test_soldier"]

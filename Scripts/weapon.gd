@@ -1,6 +1,6 @@
 extends Node
 
-class_name Weapon
+class_name Melee_Weapon
 
 #Default values for calculating damage, no matter which weapon.
 #Specific variables in specific weapon scenes should override?

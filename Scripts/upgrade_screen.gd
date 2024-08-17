@@ -14,7 +14,7 @@ extends Control
 @onready var sc_picker = $"HBoxContainer/Right Panel/SecondaryColorPicker"
 @onready var next_button = $"HBoxContainer/Right Panel/NextButton"
 
-var possibleWeapons = ["res://Scenes/sword.tscn", "res://Scenes/handaxe.tscn"]
+var possibleWeapons = ["res://scenes/sword.tscn", "res://scenes/handaxe.tscn"]
 var num = 0
 
 var equippedWeapon
@@ -116,6 +116,6 @@ func _on_next_button_pressed():
 	data_manager.save_game() #Saves the army composition to file
 	if (new_game):
 		data_manager.deploy_order.append(troop_profile.id)
-		get_tree().change_scene_to_file("res://Scenes/battlefield.tscn")
+		get_tree().change_scene_to_file("res://scenes/battlefield.tscn")
 	else:
-		get_tree().change_scene_to_file("res://Scenes/army_management.tscn")
+		get_tree().change_scene_to_file("res://scenes/army_management.tscn")

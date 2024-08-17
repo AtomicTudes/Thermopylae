@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cnwvosqiydb7f"]
 
-[ext_resource type="PackedScene" uid="uid://cil751nt87tlg" path="res://Scenes/test_soldier.tscn" id="1_2w8sk"]
-[ext_resource type="Script" path="res://Scripts/customize_troop.gd" id="1_tu7or"]
+[ext_resource type="PackedScene" uid="uid://cil751nt87tlg" path="res://scenes/test_soldier.tscn" id="1_2w8sk"]
+[ext_resource type="Script" path="res://scripts/customize_troop.gd" id="1_tu7or"]
 [ext_resource type="Texture2D" uid="uid://bcigc1eva0b3c" path="res://icon.svg" id="2_vpudy"]
 
 [node name="CustomizeTroop" type="Node2D"]

@@ -3,8 +3,8 @@ extends "res://Scripts/weapon.gd"
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	cleave = 2
-	dmgMin = 0
-	dmgMax = 0
+	dmgMin = 1
+	dmgMax = 1
 	attackTypes = ["chop", "stab"]
 	spawnPos = Vector2(11, 3)
 

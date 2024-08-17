@@ -28,3 +28,7 @@ func _input(event):
 		if event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
 			zoom += -Vector2(0.05, 0.05)
 	zoom = zoom.clamp(Vector2(0.3, 0.3), Vector2(2.5, 2.5))
+
+
+func _on_button_pressed():
+	get_tree().change_scene_to_file("res://Scenes/army_management.tscn")

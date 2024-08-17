@@ -21,4 +21,3 @@ func _process(delta):
 	if Input.is_action_pressed("down"):
 		game_view.canvas_transform.origin.y += -scroll_speed
 	
-

@@ -1,13 +1,17 @@
 class_name DefaultTroop extends Object
 
-var id
-var row: int
-var col: int
+#Variables that directly control how a troop looks or works in the world.
 var weapon: String = "sword"
 var primary_color: String = Color.CRIMSON.to_html()
 var secondary_color: String = Color.DIM_GRAY.to_html()
 var icon
 var default_behavior: String = "attack"
+
+#Variables for record-keeping and statistics. May have an indirect effect on how the troop interacts with the world.
+var kills: int = 0
+var id
+var row: int
+var col: int
 
 func _init(data: Dictionary = {}):
 	for each in data.keys():

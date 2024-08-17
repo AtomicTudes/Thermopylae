@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://clm63cqpdnnwb"]
 
 [ext_resource type="Texture2D" uid="uid://dypyrsmgoxwf1" path="res://Assets/Free Samples/coin.png" id="1_npyl0"]
-[ext_resource type="Script" path="res://Scripts/troop_selector.gd" id="3_hff2x"]
+[ext_resource type="Script" path="res://scripts/troop_selector.gd" id="3_hff2x"]
 
 [node name="troop_selector" type="Button" groups=["troop_menus"]]
 custom_minimum_size = Vector2(120, 120)

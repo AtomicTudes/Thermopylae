@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://ds5c3pp3ih4tu"]
 
 [ext_resource type="Texture2D" uid="uid://5r7n0k54ly1x" path="res://Assets/Troops/Hoplite Default x64/Default Animation Sheet.png" id="1_dt0kx"]
-[ext_resource type="Script" path="res://Scripts/ally.gd" id="1_wcfgg"]
+[ext_resource type="Script" path="res://scripts/ally.gd" id="1_wcfgg"]
 [ext_resource type="Texture2D" uid="uid://cjq1umse23hg1" path="res://Assets/Troops/Hoplite Default x64/Separated Body Parts/L Upper Arm.png" id="2_0ipn0"]
 [ext_resource type="Texture2D" uid="uid://cjx8atpoau137" path="res://Assets/Troops/Hoplite Default x64/Separated Body Parts/L Lower Arm.png" id="3_exb2w"]
 [ext_resource type="Texture2D" uid="uid://c1wwwl45hkend" path="res://Assets/Troops/Hoplite Default x64/Separated Body Parts/L Hand.png" id="4_mcnd6"]

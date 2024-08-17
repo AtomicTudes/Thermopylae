@@ -1,18 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://u3md3l0mdcts"]
+[gd_scene load_steps=3 format=3 uid="uid://u3md3l0mdcts"]
 
-[ext_resource type="Script" path="res://Scripts/camera_controller.gd" id="2_xj8p1"]
+[ext_resource type="PackedScene" uid="uid://m68pb6gum7wv" path="res://scenes/upper_ribbon.tscn" id="2_02p1b"]
+[ext_resource type="Script" path="res://scripts/camera_controller.gd" id="2_xj8p1"]
 
 [node name="ui" type="Camera2D"]
 z_index = 25
 script = ExtResource("2_xj8p1")
 
-[node name="upper_ribbon" type="PanelContainer" parent="."]
-custom_minimum_size = Vector2(0, 30)
-offset_left = -480.0
-offset_top = -270.0
-offset_right = 480.0
-offset_bottom = -238.0
-size_flags_vertical = 3
+[node name="upper_ribbon" parent="." instance=ExtResource("2_02p1b")]
 
 [node name="FightButton" type="Button" parent="."]
 offset_left = 330.0
